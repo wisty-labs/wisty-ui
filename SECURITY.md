@@ -1,6 +1,6 @@
 # Security
 
-Please don't open a public issue for a security problem. Report it privately: open this repository's Security tab and choose Report a vulnerability.
+Please don't open a public issue for a security problem. Report it privately at https://github.com/wisty-labs/wisty-ui/security/advisories/new.
 
 Tell us which item it affects, what someone could do with it, and how to reproduce it. We fix the source, and the fix reaches this repository with the next sync. Your project gets it when you add the item again with `npx shadcn@latest add @wisty/<name> --overwrite`.
 
