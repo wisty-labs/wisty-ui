@@ -1,0 +1,45 @@
+"use client"
+
+import * as React from "react"
+import { cn } from "@/lib/utils"
+import { RadioGroup as RadioGroupPrimitive } from "radix-ui"
+
+function RadioGroup({
+  className,
+  ...props
+}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
+  return (
+    <RadioGroupPrimitive.Root
+      data-slot="radio-group"
+      className={cn("grid w-full *:min-h-5", className)}
+      {...props}
+    />
+  )
+}
+
+function RadioGroupItem({
+  className,
+  ...props
+}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
+  return (
+    <RadioGroupPrimitive.Item
+      data-slot="radio-group-item"
+      className={cn(
+        "group/radio-group-item peer relative flex aspect-square size-4 shrink-0 items-center justify-center rounded-full border border-(--radio-border) bg-(--radio-background) text-(--radio-dot) shadow-(--radio-shadow) transition-[border-color,background-color] duration-100 ease-linear outline-none after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-(--radio-border-focus) focus-visible:shadow-(--shadow-focus-outset) aria-checked:bg-(--radio-background-checked) aria-checked:shadow-(--radio-shadow-checked) aria-checked:focus-visible:shadow-(--shadow-focus-outset) aria-invalid:border-2 aria-invalid:border-(--radio-border-invalid) aria-invalid:text-(--radio-dot-invalid) aria-invalid:aria-checked:bg-(--radio-background-invalid)",
+        // Radix sets disabled and Base UI aria-disabled; both must outrank the checked rules.
+        "disabled:border-(--disabled-border) disabled:bg-(--disabled-container-strong) disabled:text-(--disabled-strong) aria-disabled:cursor-default aria-disabled:border-(--disabled-border) aria-disabled:bg-(--disabled-container-strong) aria-disabled:text-(--disabled-strong) aria-checked:disabled:bg-(--disabled-container-strong) aria-checked:aria-disabled:bg-(--disabled-container-strong)",
+        className
+      )}
+      {...props}
+    >
+      <RadioGroupPrimitive.Indicator
+        data-slot="radio-group-indicator"
+        className="pointer-events-none flex items-center justify-center"
+      >
+        <span className="size-2 rounded-full bg-current" />
+      </RadioGroupPrimitive.Indicator>
+    </RadioGroupPrimitive.Item>
+  )
+}
+
+export { RadioGroup, RadioGroupItem }

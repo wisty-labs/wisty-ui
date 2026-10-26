@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Installation
+    url: https://ui.wisty.ai/docs/installation
+    about: Add @wisty to components.json, add a theme and install your first item.
+  - name: Theming
+    url: https://ui.wisty.ai/docs/theming
+    about: Cosmos, Lightning Blue and Neutral, dark mode, and your org's brand colors.

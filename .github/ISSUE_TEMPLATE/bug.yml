@@ -1,0 +1,55 @@
+name: Bug
+description: An item looks or behaves differently from its page on ui.wisty.ai.
+type: Bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open the item's page on [ui.wisty.ai](https://ui.wisty.ai) first. If the bug happens there too, say so, because that rules out your app's setup.
+  - type: input
+    id: item
+    attributes:
+      label: Item
+      description: The name in the install command. For `npx shadcn@latest add @wisty/record-page` it's `record-page`.
+      placeholder: record-page
+    validations:
+      required: true
+  - type: dropdown
+    id: base
+    attributes:
+      label: Base
+      description: The `style` in your components.json tells you. A style that starts with `base-` is Base UI, and any other is Radix.
+      options:
+        - Radix
+        - Base UI
+    validations:
+      required: true
+  - type: dropdown
+    id: themes
+    attributes:
+      label: Themes
+      description: Every theme you saw it in.
+      multiple: true
+      options:
+        - Cosmos
+        - Cosmos dark
+        - Lightning Blue
+        - Neutral
+        - Neutral dark
+        - My own theme
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what you got. Attach a screenshot if it's visual.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce it
+      description: The fewest steps or the smallest code that shows it. Name the browser if it only happens in one.
+    validations:
+      required: true

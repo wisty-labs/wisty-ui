@@ -1,0 +1,106 @@
+import { cva, type VariantProps } from "class-variance-authority"
+import { cn } from "@/lib/utils"
+import { Slot } from "radix-ui"
+
+import { Separator } from "@/components/ui/separator"
+
+const focus =
+  "[&>button:not([data-slot=select-trigger],[data-variant=ghost],[data-variant=link]):focus-visible]:outline-2 [&>button:not([data-slot=select-trigger],[data-variant=ghost],[data-variant=link]):focus-visible]:outline-solid [&>button:not([data-slot=select-trigger],[data-variant=ghost],[data-variant=link]):focus-visible]:-outline-offset-2 [&>button:not([data-slot=select-trigger],[data-variant=ghost],[data-variant=link]):focus-visible]:outline-ring [&>button:not([data-slot=select-trigger],[data-variant=ghost],[data-variant=link],[data-variant=default],[data-variant=destructive],[data-variant=success]):focus-visible]:shadow-none [&>button:not([data-slot=select-trigger],[data-variant=ghost],[data-variant=link],[data-variant=default],[data-variant=destructive],[data-variant=success],[data-variant=inverse]):focus-visible]:bg-background [&>[data-slot=button]:is([data-variant=default],[data-variant=destructive],[data-variant=success]):focus-visible]:shadow-[inset_0_0_0_3px_var(--button-group-inset)]"
+
+// Adjacent brand buttons share one fill, so a line separates them.
+const brandPair =
+  "[&>[data-variant=default]+[data-variant=default]]:shadow-[inset_1px_0_0_var(--button-group-inset)]"
+
+// Beside a filled button a border-colored separator would vanish, so it takes
+// the brand pair's line color.
+const filledSeparator =
+  "[&>:is([data-variant=default],[data-variant=destructive],[data-variant=success])+[data-slot=button-group-separator]]:bg-(--button-group-inset) [&>[data-slot=button-group-separator]:has(+:is([data-variant=default],[data-variant=destructive],[data-variant=success]))]:bg-(--button-group-inset)"
+
+// Disabled bordered buttons keep the normal border color in a group.
+const disabledBorder =
+  "[&>button:not([data-slot=select-trigger],[data-variant=default],[data-variant=ghost],[data-variant=link],[data-variant=inverse]):disabled]:border-border-strong"
+
+const buttonGroupVariants = cva(
+  cn(
+    "group/button-group flex w-fit items-stretch has-[>[data-slot=button-group]]:gap-2 *:focus-visible:relative *:focus-visible:z-10 [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
+    focus,
+    brandPair,
+    filledSeparator,
+    disabledBorder
+  ),
+  {
+    variants: {
+      orientation: {
+        horizontal:
+          "[&>[data-slot]:has(~[data-slot])]:rounded-e-none [&>[data-slot]:has(~[data-slot])]:border-e-0 [&>[data-slot]~[data-slot]]:rounded-s-none",
+        vertical:
+          "flex-col [&>[data-slot]:has(~[data-slot])]:rounded-b-none [&>[data-slot]:has(~[data-slot])]:border-b-0 [&>[data-slot]~[data-slot]]:rounded-t-none",
+      },
+    },
+    defaultVariants: {
+      orientation: "horizontal",
+    },
+  }
+)
+
+function ButtonGroup({
+  className,
+  orientation,
+  ...props
+}: React.ComponentProps<"div"> & VariantProps<typeof buttonGroupVariants>) {
+  return (
+    <div
+      role="group"
+      data-slot="button-group"
+      data-orientation={orientation}
+      className={cn(buttonGroupVariants({ orientation }), className)}
+      {...props}
+    />
+  )
+}
+
+function ButtonGroupText({
+  className,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"div"> & {
+  asChild?: boolean
+}) {
+  const Comp = asChild ? Slot.Root : "div"
+
+  return (
+    <Comp
+      data-slot="button-group-text"
+      className={cn(
+        "flex items-center gap-2 rounded-(--button-radius) border border-border-strong bg-secondary px-(--button-padding-inline) text-(length:--font-size-base) whitespace-nowrap text-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function ButtonGroupSeparator({
+  className,
+  orientation = "vertical",
+  ...props
+}: React.ComponentProps<typeof Separator>) {
+  return (
+    <Separator
+      data-slot="button-group-separator"
+      orientation={orientation}
+      className={cn(
+        "relative self-stretch bg-border-strong data-horizontal:mx-px data-horizontal:w-auto data-vertical:my-px data-vertical:h-auto",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+  buttonGroupVariants,
+}

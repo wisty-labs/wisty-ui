@@ -1,0 +1,236 @@
+/*
+ * Wisty UI tokens: maps SLDS tokens to shadcn.
+ *
+ * Import this once, after Tailwind, together with one or more theme files
+ * (cosmos.css, lightning-blue.css, neutral.css). Colors and sizes live in
+ * the theme files; this file registers them with Tailwind, sets the page
+ * defaults and defines the animations.
+ *
+ * Three layers:
+ *   1. shadcn's semantic tokens (--background, --primary, ...), so standard
+ *      utilities and third-party shadcn blocks keep working.
+ *   2. SLDS extras (--page, --heading, --link, ...), registered as color
+ *      utilities: bg-page, text-heading, text-link, ...
+ *   3. Component tokens (--button-radius, --card-radius, ...), read by the
+ *      primitives through arbitrary values like rounded-(--button-radius).
+ *
+ * Switch themes with data-theme="cosmos" | "lightning-blue" | "neutral" and
+ * dark mode with the .dark class, both on the same element (usually <html>).
+ * Chart colors (--chart-1 to --chart-6) switch to one of Salesforce's
+ * dashboard palettes with data-chart-palette on any element inside the theme
+ * root. Cosmos's and Lightning Blue's files carry the palettes.
+ *
+ * The spinner and dynamic icon animations are © 2026 Salesforce, Inc., from
+ * SLDS 2, under Salesforce's Terms of Use: https://ui.wisty.ai/docs/license.
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+/* Salesforce's display density: data-density="compact" on <html> (with the
+   theme) tightens spacing through the theme files; this variant is for
+   layout that changes with it, like labels beside fields. The nearest
+   data-density wins, so a block can say "comfy" inside a compact page. */
+@custom-variant compact (&:where([data-density="compact"], [data-density="compact"] *):not(:where([data-density="compact"] [data-density="comfy"], [data-density="compact"] [data-density="comfy"] *)));
+
+@theme inline {
+  /* 1. shadcn semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* 2. SLDS extras */
+  --color-page: var(--page);
+  --color-container: var(--container);
+  --color-heading: var(--heading);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+  --color-focus: var(--focus);
+  --color-border-strong: var(--border-strong);
+  --color-border-inverse: var(--border-inverse);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-deep: var(--primary-deep);
+  --color-selected: var(--selected);
+  --color-inverse: var(--inverse);
+  --color-inverse-foreground: var(--inverse-foreground);
+  --color-neutral: var(--neutral);
+  --color-disabled: var(--disabled);
+  --color-disabled-container: var(--disabled-container);
+  --color-disabled-border: var(--disabled-border);
+  --color-disabled-strong: var(--disabled-strong);
+  --color-disabled-container-strong: var(--disabled-container-strong);
+  --color-error-base: var(--error-base);
+  --color-error-container: var(--error-container);
+  --color-on-error: var(--on-error);
+  --color-success: var(--success);
+  --color-success-container: var(--success-container);
+  --color-on-success: var(--on-success);
+  --color-warning-container: var(--warning-container);
+  --color-on-warning: var(--on-warning);
+  --color-info-container: var(--info-container);
+  --color-on-info: var(--on-info);
+
+  /* Radius ladder: SLDS radius-border-1 to 4. Controls use md, menus lg,
+     cards and modals xl. */
+  --radius-sm: var(--radius-1);
+  --radius-md: var(--radius-2);
+  --radius-lg: var(--radius-3);
+  --radius-xl: var(--radius-4);
+  --radius-2xl: var(--radius-4);
+
+  /* Elevation ladder: SLDS shadow-1 to 4 */
+  --shadow-sm: var(--elevation-1);
+  --shadow: var(--elevation-1);
+  --shadow-md: var(--elevation-2);
+  --shadow-lg: var(--elevation-3);
+  --shadow-xl: var(--elevation-4);
+  --shadow-2xl: var(--elevation-4);
+
+  /* An app's own --font-sans and --font-mono win, as in shadcn; without them,
+     the theme's stack. */
+  --font-sans: var(--font-sans, var(--font-family-sans));
+  --font-mono: var(--font-mono, var(--font-family-mono));
+
+  /* Spinner: one dot of slds-spinner. Each dot rests for 60% of a second,
+     bounces out by half the circle's radius and back, with SLDS's
+     dotsBounceAfter-medium curves. The spinner staggers the dots. Lengths are
+     the spinner's own SVG units, so the bounce scales with its size. */
+  --animate-spinner-dot: spinner-dot 1s infinite;
+
+  @keyframes spinner-dot {
+    0%,
+    60% {
+      transform: translateX(0);
+      animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    80% {
+      transform: translateX(4px);
+      animation-timing-function: cubic-bezier(0, 1.11, 0.7, 1.43);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* Dynamic icons. Ellie pops in after 2s, then its ring thins and thickens
+     twice. Eq's bars bounce between 3px and 14px tall. Trend draws its ring,
+     then its arrow. */
+  --animate-dynamic-icon-ellie-pop: dynamic-icon-ellie-pop 0.3s ease-in 2s both;
+  --animate-dynamic-icon-ellie-outer: dynamic-icon-ellie-outer 1.2s linear 2.3s
+    2;
+  --animate-dynamic-icon-ellie-inner: dynamic-icon-ellie-inner 1.2s linear 2.3s
+    2;
+  --animate-dynamic-icon-eq: dynamic-icon-eq 0.25s ease-in-out infinite
+    alternate;
+  --animate-dynamic-icon-trend-ring: dynamic-icon-trend-ring 0.8s ease-in-out
+    both;
+  --animate-dynamic-icon-trend-arrow: dynamic-icon-trend-arrow 0.8s ease-in-out
+    0.4s both;
+
+  @keyframes dynamic-icon-ellie-pop {
+    0% {
+      transform: scale(0.2);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    90% {
+      transform: scale(0.7);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes dynamic-icon-ellie-outer {
+    50% {
+      stroke-width: 3px;
+    }
+  }
+
+  @keyframes dynamic-icon-ellie-inner {
+    50% {
+      stroke-width: 4px;
+    }
+  }
+
+  @keyframes dynamic-icon-eq {
+    to {
+      transform: scaleY(4.6667);
+    }
+  }
+
+  @keyframes dynamic-icon-trend-ring {
+    from {
+      stroke-dasharray: 0.1px 46.34px;
+    }
+  }
+
+  @keyframes dynamic-icon-trend-arrow {
+    from {
+      stroke-dashoffset: 40.3px;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    background-color: var(--page);
+    color: var(--foreground);
+    font-family: var(--font-sans, var(--font-family-sans));
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+  }
+
+  ::placeholder {
+    color: var(--input-placeholder);
+    opacity: 1;
+  }
+
+  /* SLDS's reset points at buttons; Tailwind's preflight doesn't. Base UI
+     keeps some disabled controls focusable, with aria-disabled instead of
+     disabled. Base UI's checkbox, switch and radio are spans, so they're
+     named by their roles; SLDS points at checkboxes, toggles and radios too. */
+  :is(
+    button,
+    [role="button"],
+    [role="checkbox"],
+    [role="switch"],
+    [role="radio"]
+  ):not(:disabled, [aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}

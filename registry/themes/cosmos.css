@@ -1,0 +1,1270 @@
+/*
+ * GENERATED. Do not edit.
+ * Source: @salesforce-ux/design-system-2@2.264.2 (4b2bcc8), dist/css/bundled/slds2.cosmos.css,
+ * and SLDS's Charts guidelines for the chart colors.
+ * Values © 2026 Salesforce, Inc. Salesforce's Terms of Use:
+ * https://ui.wisty.ai/docs/license. Wisty UI is not made, sponsored or
+ * endorsed by Salesforce.
+ * Brand and density hooks stay live as var(--slds-…, <this theme's value>),
+ * so an org's theme or density set on <html> wins; data-density="compact"
+ * sets Salesforce's compact values.
+ */
+
+:where(:root),
+[data-theme="cosmos"] {
+  color-scheme: light;
+
+  /* shadcn semantic tokens */
+  --background: #ffffff;
+  --foreground: var(--slds-g-color-on-surface-3, #03234d);
+  --card: #ffffff;
+  --card-foreground: #5c5c5c;
+  --popover: #ffffff;
+  --popover-foreground: #2e2e2e;
+  --primary: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --primary-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+  --secondary: #f3f3f3;
+  --secondary-foreground: #2e2e2e;
+  --muted: #f3f3f3;
+  --muted-foreground: #5c5c5c;
+  --accent: var(--slds-r-color-brand-90, #d6e6ff);
+  --accent-foreground: #2e2e2e;
+  --destructive: #b60554;
+  --border: #c9c9c9;
+  --input: #5c5c5c;
+  --ring: var(--slds-r-color-brand-15, #001e5b);
+  --chart-1: #3296ed;
+  --chart-2: #77b9f2;
+  --chart-3: #9d53f2;
+  --chart-4: #c398f5;
+  --chart-5: #26aba4;
+  --chart-6: #4ed4cd;
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--slds-g-color-on-surface-3, #03234d);
+  --sidebar-primary: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --sidebar-primary-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+  --sidebar-accent: color-mix(in srgb, var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe)) 10%, transparent);
+  --sidebar-accent-foreground: var(--slds-r-color-brand-15, #001e5b);
+  --sidebar-border: #c9c9c9;
+  --sidebar-ring: var(--slds-r-color-brand-15, #001e5b);
+  --radius: 0.5rem;
+
+  /* SLDS extras, registered as color utilities */
+  --page: #f3f3f3;
+  --container: #e5e5e5;
+  --heading: var(--slds-g-color-on-surface-3, #03234d);
+  --link: var(--slds-g-color-accent-2, var(--slds-r-color-brand-40, #0250d9));
+  --link-hover: var(--slds-g-color-accent-3, var(--slds-r-color-brand-30, #022ac0));
+  --focus: var(--slds-r-color-brand-15, #001e5b);
+  --border-strong: #5c5c5c;
+  --primary-hover: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-40, #0250d9));
+  --primary-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-30, #022ac0));
+  --primary-deep: var(--slds-r-color-brand-15, #001e5b);
+  --selected: var(--slds-r-color-brand-90, #d6e6ff);
+  --inverse: #032d60;
+  --inverse-foreground: #ffffff;
+  --border-inverse: #f3f3f3;
+  --neutral: #757575;
+  --disabled: #757575;
+  --disabled-container: #e5e5e5;
+  --disabled-border: #757575;
+  --disabled-strong: #757575;
+  --disabled-container-strong: #c9c9c9;
+  --error-base: #e3066a;
+  --error-container: #fddde3;
+  --on-error: #b60554;
+  --success: #0b827c;
+  --success-container: #acf3e4;
+  --on-success: #056764;
+  --warning-container: #f9e3b6;
+  --on-warning: #8c4b02;
+  --info-container: #d8e6fe;
+  --on-info: #0b5cab;
+
+  /* Scale: radius, elevation, type, focus */
+  --radius-1: 0.25rem;
+  --radius-2: 0.5rem;
+  --radius-3: 0.75rem;
+  --radius-4: 1.25rem;
+  --radius-pill: 15rem;
+  --elevation-1: 0px 0px 2px 0px #0000002e, 0px 2px 2px 0px #0000002e, 0px -1px 2px 0px #0000001a;
+  --elevation-2: 0px 0px 5px 0px #00000029, 0px 3px 3px 0px #00000029, 0px -1px 2px 0px #00000017;
+  --elevation-3: 0px 0px 7px 0px #00000024, 0px 5px 5px 0px #00000024, 0px -1px 2px 0px #00000014;
+  --elevation-4: 0px 0px 10px 0px #0000001f, 0px 7px 7px 0px #0000001f, 0px -1px 3px 0px #00000012;
+  --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-mono: Consolas, Menlo, Monaco, Courier, monospace;
+  --font-size-base: 0.8125rem;
+  --line-height-base: var(--slds-g-font-lineheight-var-base, var(--slds-g-font-line-height-var-base, 1.5));
+  --control-height: calc(1.875rem + 2px);
+  --shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b);
+  --shadow-focus-outset: 0px 0px 0px 2px #ffffff, 0px 0px 0px 4px var(--slds-r-color-brand-15, #001e5b);
+  --shadow-focus-inset: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b) inset, 0px 0px 0px 4px #ffffff inset;
+  --page-title-size: 1.75rem;
+  --page-title-weight: 400;
+
+  /* Button */
+  --button-radius: 15rem;
+  --button-padding-inline: 1rem;
+  --button-font-weight: 600;
+  --button-foreground: var(--slds-g-color-accent-2, var(--slds-r-color-brand-40, #0250d9));
+  --button-foreground-hover: var(--slds-g-color-on-surface-3, #03234d);
+  --button-shadow-active: 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.35) inset, 0px 1px 0px 0px rgba(0, 0, 0, 0.15) inset;
+  --button-bordered-transform-hover: translateY(-1.5px);
+  --button-bordered-shadow-hover: 0 1.5px 0 0 #2e2e2e;
+  --button-brand-transform-hover: translateY(-2px);
+  --button-brand-shadow-hover: 0 2px 0 0 var(--slds-r-color-brand-20, #002775);
+  --button-inverse-shadow-hover: 0 2px 0 0 #2e2e2e;
+  --button-icon-foreground: var(--slds-g-color-accent-2, var(--slds-r-color-brand-40, #0250d9));
+  --button-brand-foreground-hover: var(--slds-g-color-on-accent-2, #ffffff);
+  --button-destructive: #e3066a;
+  --button-destructive-hover: #b60554;
+  --button-destructive-foreground: #ffffff;
+  --button-destructive-foreground-hover: #ffffff;
+  --button-destructive-shadow-hover: 0 2px 0 0 #61022a;
+  --button-destructive-border-hover: #8a033e;
+  --button-success: #0b827c;
+  --button-success-hover: #056764;
+  --button-success-foreground: #ffffff;
+  --button-success-foreground-hover: #ffffff;
+  --button-success-shadow-hover: 0 2px 0 0 #023434;
+
+  /* Input */
+  --input-radius: 0.5rem;
+  --input-padding-inline: 0.5rem;
+  --input-foreground: #2e2e2e;
+  --input-placeholder: #5c5c5c;
+  --input-border-focus: #5c5c5c;
+  --input-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b);
+  --input-background-invalid: #fddde3;
+  --input-foreground-invalid: #b60554;
+  --input-border-invalid: #b60554;
+  --input-background-disabled: #e5e5e5;
+  --input-border-disabled: #757575;
+  --input-foreground-disabled: #757575;
+
+  /* Card */
+  --card-radius: 1.25rem;
+  --card-border: transparent;
+  --card-shadow: none;
+  --card-spacing-block: var(--slds-g-spacing-var-block-3, 0.75rem);
+  --card-spacing-inline: var(--slds-g-spacing-var-inline-4, 1rem);
+  --card-body-spacing-inline: var(--slds-g-spacing-var-inline-3, 0.75rem);
+  --card-title-size: var(--slds-g-font-scale-var-3, 1.25rem);
+  --card-title-weight: 400;
+  --card-title-line-height: 1.25;
+  --card-description-size: 0.75rem;
+  --card-sm-radius: 0.75rem;
+  --card-sm-title-size: 1rem;
+  --card-sm-title-weight: 600;
+
+  /* Page header */
+  --page-header-background: #f3f3f3;
+  --page-header-border: #c9c9c9;
+  --page-header-border-width: 0;
+  --page-header-radius: 0;
+  --page-header-shadow: none;
+  --page-header-spacing-block: var(--slds-g-spacing-var-block-4, 1rem);
+  --page-header-spacing-inline: var(--slds-g-spacing-var-inline-4, 1rem);
+  --page-header-detail-background: #f3f3f3;
+  --page-title-line-height: 1.25;
+  --page-header-switcher-offset: 0.25rem;
+
+  /* List view header */
+  --list-view-title-line-height: 1.75;
+
+  /* Tabs */
+  --tabs-height: 2.5rem;
+  --tabs-font-size: var(--slds-g-font-scale-var-1, 0.875rem);
+  --tabs-font-weight: 600;
+  --tabs-font-weight-active: 600;
+  --tabs-foreground: #5c5c5c;
+  --tabs-foreground-hover: var(--slds-r-color-brand-15, #001e5b);
+  --tabs-foreground-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-30, #022ac0));
+  --tabs-indicator-hover: var(--slds-r-color-brand-15, #001e5b);
+  --tabs-indicator-hover-size: 3px;
+  --tabs-indicator-active: var(--slds-g-color-accent-2, var(--slds-r-color-brand-40, #0250d9));
+  --tabs-indicator-active-size: 3px;
+  --tabs-border: #c9c9c9;
+  --tabs-scoped-background: #ffffff;
+  --tabs-scoped-background-hover: var(--slds-r-color-brand-90, #d6e6ff);
+  --tabs-scoped-background-active: #ffffff;
+  --tabs-scoped-foreground: #5c5c5c;
+  --tabs-scoped-radius: 0;
+  --tabs-vertical-nav-width: 15rem;
+
+  /* Popover */
+  --popover-border-width: 0;
+  --popover-shadow: 0px 0px 10px 0px #0000001f, 0px 7px 7px 0px #0000001f, 0px -1px 3px 0px #00000012;
+  --popover-body-foreground: #5c5c5c;
+  --popover-title-foreground: var(--slds-g-color-on-surface-3, #03234d);
+  --popover-title-size: 1.25rem;
+  --popover-title-weight: 400;
+  --popover-title-line-height: 1.25;
+
+  /* Tooltip */
+  --tooltip: #032d60;
+  --tooltip-max-width: 20rem;
+  --tooltip-shadow: 0px 0px 7px 0px #00000024, 0px 5px 5px 0px #00000024, 0px -1px 2px 0px #00000014;
+  --tooltip-foreground: #ffffff;
+  --tooltip-font-size: 0.75rem;
+  --tooltip-nubbin-shadow: 2px 2px 2px 0 #0000001f;
+
+  /* Progress bar */
+  --progress-track: #e5e5e5;
+
+  /* Slider */
+  --slider-track: #c9c9c9;
+  --slider-track-radius: 0.25rem;
+  --slider-thumb: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --slider-thumb-hover: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-40, #0250d9));
+  --slider-thumb-focus: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-40, #0250d9));
+  --slider-thumb-active: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-40, #0250d9));
+  --slider-thumb-shadow-focus: 0px 0px 0px 2px #ffffff, 0px 0px 0px 4px var(--slds-r-color-brand-15, #001e5b);
+  --slider-thumb-disabled: #757575;
+  --slider-track-disabled: #757575;
+
+  /* Select (picklist) */
+  --select-icon: #5c5c5c;
+  --select-shadow-invalid: none;
+  --select-font-size: 0.75rem;
+  --select-content-max-height: calc((1.5rem + 1rem) * 7);
+  --select-label-weight: 600;
+  --select-check: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --select-item-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b) inset;
+  --select-disabled: #757575;
+
+  /* Badge */
+  --badge-radius: 0.25rem;
+  --badge-font-size: 0.75rem;
+
+  /* Alert (scoped notification, alert banner) */
+  --alert-font-weight: 600;
+  --alert-background: #e5e5e5;
+  --alert-foreground: #5c5c5c;
+  --alert-icon: #5c5c5c;
+  --alert-close-hover: var(--slds-g-color-on-surface-3, #03234d);
+  --alert-title-weight: 700;
+
+  /* Label and field (form element) */
+  --label-foreground: #2e2e2e;
+  --label-font-size: 0.8125rem;
+  --label-font-weight: 600;
+  --label-gap: 0.25rem;
+  --field-description-size: 0.75rem;
+  --field-description-foreground: #5c5c5c;
+  --field-legend-size: 0.875rem;
+  --field-legend-weight: 600;
+  --field-static-size: 0.8125rem;
+  --field-static-foreground: #181818;
+  --field-horizontal-spacing-block: var(--slds-g-spacing-var-1, 0.25rem);
+  --field-horizontal-spacing-inline: 0.25rem;
+
+  /* Table */
+  --table-foreground: #000000;
+  --table-head-weight: 500;
+  --table-header-background: #f3f3f3;
+  --table-header-foreground: #5c5c5c;
+  --table-header-weight: 600;
+  --table-radius: calc(4px * 2);
+  --table-border-inline: #c9c9c9;
+  --table-row-shadow-hover: none;
+  --table-row-border-hover: #5c5c5c;
+  --table-row-selected: var(--slds-r-color-brand-90, #d6e6ff);
+  --table-row-border-selected: var(--slds-r-color-brand-40, #0250d9);
+  --table-header-background-hover: #e5e5e5;
+  --table-sort-icon: #5c5c5c;
+  --table-resize-color: #c9c9c9;
+  --table-resize-color-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-30, #022ac0));
+  --table-row-number-size: 0.75rem;
+
+  /* Spinner */
+  --spinner: #757575;
+
+  /* Checkbox */
+  --checkbox-radius: 0.25rem;
+  --checkbox-border: #5c5c5c;
+  --checkbox-background: #ffffff;
+  --checkbox-background-checked: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --checkbox-foreground-checked: var(--slds-g-color-on-accent-1, #ffffff);
+  --checkbox-shadow-checked: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --checkbox-border-focus: #5c5c5c;
+  --checkbox-border-invalid: #b60554;
+  --checkbox-background-invalid: #b60554;
+  --checkbox-foreground-invalid: #ffffff;
+
+  /* Radio */
+  --radio-border: #5c5c5c;
+  --radio-background: #ffffff;
+  --radio-shadow: none;
+  --radio-background-checked: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --radio-shadow-checked: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --radio-dot: var(--slds-g-color-on-accent-1, #ffffff);
+  --radio-border-focus: #5c5c5c;
+  --radio-border-invalid: #b60554;
+  --radio-background-invalid: #b60554;
+  --radio-dot-invalid: #ffffff;
+
+  /* Button group */
+  --button-group-inset: #ffffff;
+
+  /* Avatar */
+  --avatar-radius: 100%;
+  --avatar-font-size: 0.875rem;
+  --avatar-sm-font-size: 0.625rem;
+  --avatar-lg-font-size: 1.25rem;
+  --avatar-background: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --avatar-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+
+  /* Toast (sonner) */
+  --toast-radius: 0.5rem;
+  --toast-width: 30rem;
+  --toast-title-size: 1rem;
+  --toast-title-line-height: 1.25;
+  --toast-title-weight: 600;
+
+  /* Dialog (modal) */
+  --modal-backdrop: color-mix(in oklab, #2e2e2e, transparent 20%);
+  --modal-radius: 1.25rem;
+  --modal-background: #ffffff;
+  --modal-foreground: #5c5c5c;
+  --modal-border: #c9c9c9;
+  --modal-border-width: 2px;
+  --modal-title-size: 1.25rem;
+  --modal-title-weight: 400;
+  --modal-footer-background: #ffffff;
+
+  /* Alert dialog (prompt) */
+  --prompt-title-align: left;
+  --prompt-footer-border-width: 1px;
+  --prompt-footer-align: right;
+  --prompt-title-size: 1.5rem;
+  --prompt-title-line-height: 1.25;
+  --prompt-padding-inline: 2rem;
+
+  /* Sheet (panel) */
+  --panel-background: #ffffff;
+  --panel-foreground: #5c5c5c;
+  --panel-border: #f3f3f3;
+  --panel-title-size: 1.25rem;
+  --panel-shadow-right: 0px 0px 7px 0px #00000024, -5px 0px 5px 0px #00000024, 1px 0px 2px 0px #00000014;
+  --panel-shadow-left: 0px 0px 7px 0px #00000024, 5px 0px 5px 0px #00000024, -1px 0px 3px 0px #00000014;
+  --panel-shadow-top: 0px 0px 7px 0px #00000024, 0px 5px 5px 0px #00000024, 0px -1px 2px 0px #00000014;
+  --panel-shadow-bottom: 0px 0px 7px 0px #00000024, 0px -5px 5px 0px #00000024, 0px 1px 2px 0px #00000014;
+
+  /* Menu (dropdown menu) */
+  --menu-font-size: 0.75rem;
+  --menu-label-weight: 600;
+  --menu-item-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b) inset;
+  --menu-disabled: #757575;
+  --menu-icon: #5c5c5c;
+  --menu-check: var(--slds-g-color-accent-2, var(--slds-r-color-brand-40, #0250d9));
+
+  /* Context bar (menubar; navigation-menu later) */
+  --context-bar-height: 2.5rem;
+  --context-bar-padding-block: 0.25rem;
+  --context-bar-border-width: 0;
+  --context-bar-border: var(--slds-g-color-accent-2, var(--slds-r-color-brand-40, #0250d9));
+  --context-bar-gap: 0.25rem;
+  --context-bar-item-radius: 0.75rem;
+  --context-bar-item-max-width: 20rem;
+  --context-bar-item-weight: 500;
+  --context-bar-item-background-hover: transparent;
+  --context-bar-indicator-size: 3px;
+  --context-bar-indicator-hover: var(--slds-r-color-brand-15, #001e5b);
+  --context-bar-focus: var(--slds-r-color-brand-15, #001e5b);
+  --context-bar-focus-decoration: none;
+
+  /* Sidebar (vertical navigation) */
+  --sidebar-item-foreground: #5c5c5c;
+  --sidebar-item-foreground-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-30, #022ac0));
+  --sidebar-item-weight-active: 600;
+  --sidebar-bar: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --sidebar-shade-border: #e5e5e5;
+
+  /* Calendar (date picker) */
+  --calendar-font-size: 0.75rem;
+  --calendar-day-foreground: #2e2e2e;
+  --calendar-day-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b) inset;
+  --calendar-day-disabled: #757575;
+
+  /* Section (expandable section, record form's section bar) */
+  --section-title-size: var(--slds-g-font-scale-var-3, 1.25rem);
+  --section-title-weight: 400;
+  --record-section-title-size: 1rem;
+
+  /* Record pages (inline edit, docked form footer) */
+  --field-edited-background: #f9e3b6;
+  --docked-form-footer-background: #ffffff;
+  --docked-form-footer-shadow: 0px 0px 5px 0px #00000029, 0px -3px 3px 0px #00000029, 0px 1px 2px 0px #00000017;
+
+  /* Accordion */
+  --accordion-spacing: 0.75rem;
+  --accordion-title-size: var(--slds-g-font-scale-var-3, 1.25rem);
+  --accordion-title-weight: 400;
+  --accordion-title-line-height: 1.25;
+  --accordion-title-foreground-hover: var(--slds-g-color-accent-container-3, var(--slds-r-color-brand-30, #022ac0));
+  --accordion-trigger-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b) inset;
+  --accordion-disabled: #757575;
+
+  /* Textarea */
+  --textarea-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b) inset;
+
+  /* Input group (input with icons) */
+  --input-group-icon: #5c5c5c;
+  --input-group-icon-disabled: #757575;
+
+  /* Switch (checkbox toggle) */
+  --switch-background: #939393;
+  --switch-border: #939393;
+  --switch-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --switch-background-hover: #757575;
+  --switch-border-hover: #757575;
+  --switch-border-checked: var(--slds-g-color-border-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --switch-border-checked-hover: var(--slds-r-color-brand-40, #0250d9);
+  --switch-thumb: var(--slds-g-color-on-accent-1, #ffffff);
+  --switch-thumb-hover: var(--slds-g-color-on-accent-2, #ffffff);
+
+  /* Kbd (no SLDS counterpart) */
+  --kbd-font-size: 0.75rem;
+
+  /* Scroll area (no SLDS counterpart) */
+  --scrollbar-thumb: #757575;
+  --scrollbar-thumb-hover: #5c5c5c;
+  --scrollbar-track-hover: #f3f3f3;
+
+  /* Empty (illustration, without the illustration) */
+  --empty-title-size: 1.5rem;
+  --empty-title-line-height: 1.25;
+  --empty-icon: #5c5c5c;
+
+  /* Item (slds-tile, slds-media, slds-box) */
+  --item-description-size: 0.75rem;
+  --item-border-hover: var(--slds-r-color-brand-40, #0250d9);
+  --item-shadow-hover: 0 0 0 1px var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe)) inset;
+
+  /* Icon (slds-icon_container, slds-icon) */
+  --icon-radius: 100%;
+  --icon-foreground: #5c5c5c;
+  --icon-inverse: #ffffff;
+  --icon-warning: #8c4b02;
+  --icon-error: #b60554;
+  --icon-success: #056764;
+
+  /* Pill (slds-pill, slds-pill_container) */
+  --pill-font-size: 0.75rem;
+  --pill-line-height: 1.25;
+  --pill-background: #ffffff;
+  --pill-background-hover: var(--slds-r-color-brand-90, #d6e6ff);
+  --pill-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-15, #001e5b) inset;
+  --pill-border-invalid: #b60554;
+  --pill-foreground-invalid: #b60554;
+  --pill-container-background: #ffffff;
+
+  /* Lookup (slds-combobox, entity autocomplete) */
+  --lookup-selection-shadow: 0 0 0 2px transparent inset, 0 0 0 3px #c9c9c9 inset;
+  --lookup-spinner: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --lookup-mark-weight: 700;
+
+  /* Path (slds-path) */
+  --path-incomplete: #e5e5e5;
+  --path-incomplete-hover: #aeaeae;
+  --path-incomplete-foreground: #2e2e2e;
+  --path-complete: #acf3e4;
+  --path-complete-hover: #acf3e4;
+  --path-complete-foreground: #056764;
+  --path-current-border: var(--slds-r-color-brand-30, #022ac0);
+  --path-current-border-hover: var(--slds-r-color-brand-20, #002775);
+  --path-current-foreground: var(--slds-r-color-brand-20, #002775);
+  --path-active: #032d60;
+  --path-active-hover: #032d60;
+  --path-active-foreground: #ffffff;
+  --path-won: #acf3e4;
+  --path-lost: #fddde3;
+  --path-lost-foreground: #b60554;
+  --path-border-width: 0.0625rem;
+  --path-current-height: 1.875rem;
+
+  /* Chart (no SLDS counterpart; the SLDS Charts guidelines) */
+  --chart-text-size: 0.75rem;
+  --chart-value-size: 2rem;
+  --chart-unit-size: 1.25rem;
+  --chart-positive: #056764;
+  --chart-negative: #b60554;
+  --chart-warning: #8c4b02;
+  --chart-other: #5c5c5c;
+
+  /* Metric and gauge (slds-text-title, slds-text-heading_large) */
+  --metric-label-size: 0.75rem;
+  --metric-label-line-height: 1.25;
+  --metric-value-line-height: 1.25;
+  --gauge-bar-value-size: 1.25rem;
+
+  /* Dynamic icon (slds-icon-ellie, -eq, -score, -strength, -trend) */
+  --dynamic-icon-accent: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --dynamic-icon-on-accent: var(--slds-g-color-on-accent-1, #ffffff);
+
+  /* File selector (slds-file-selector) */
+  --file-selector-border-drag: var(--slds-r-color-brand-40, #0250d9);
+  --file-selector-drag-background: var(--slds-r-color-brand-90, #d6e6ff);
+  --file-selector-body-background: #ffffff;
+  --file-selector-body-border: transparent;
+  --file-selector-title-size: 1.5rem;
+  --file-selector-title-line-height: 1.25;
+  --file-selector-dragging-foreground: #757575;
+
+  /* Activity timeline (slds-timeline) */
+  --timeline-task: rgb(75, 192, 118);
+  --timeline-event: rgb(203, 101, 255);
+  --timeline-call: rgb(72, 195, 204);
+  --timeline-email: rgb(147, 147, 147);
+  --timeline-title-size: 0.875rem;
+  --timeline-title-weight: 600;
+  --timeline-date-size: 0.75rem;
+
+  /* Progress indicator (slds-progress) */
+  --progress-indicator-marker-border: var(--slds-g-color-on-accent-1, #ffffff);
+  --progress-indicator-marker-border-hover: var(--slds-r-color-brand-40, #0250d9);
+  --progress-indicator-check-vertical: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+
+  /* Progress ring (slds-progress-ring) */
+  --progress-ring-active-step: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --progress-ring-content-size: 0.75rem;
+  --progress-ring-content-size-large: 0.8125rem;
+  --progress-ring-content-weight: 400;
+
+  /* Visual picker (slds-visual-picker) */
+  --visual-picker-accent: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --visual-picker-shadow: none;
+  --visual-picker-shadow-selected: 0 0 0 1px var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe)) inset;
+  --visual-picker-disabled: #757575;
+  --visual-picker-check: var(--slds-g-color-on-accent-1, #ffffff);
+  --visual-picker-title-size: 1rem;
+  --visual-picker-title-size-figure: 1.5rem;
+  --visual-picker-description-size: 0.75rem;
+  --visual-picker-line-height: 1.25;
+
+  /* Markdown (slds-markdown) */
+  --markdown-foreground: #2e2e2e;
+  --markdown-h1-size: 2rem;
+  --markdown-h2-size: 1.75rem;
+  --markdown-h3-size: 1.5rem;
+  --markdown-h4-size: 1.25rem;
+  --markdown-h5-size: 1rem;
+  --markdown-h6-size: 0.875rem;
+  --markdown-code-size: 0.75rem;
+  --markdown-surface: #e5e5e5;
+  --markdown-code-border: #c9c9c9;
+  --markdown-table-border: #c9c9c9;
+  --markdown-divider: #e5e5e5;
+  --markdown-task-border: #444444;
+
+  /* Tree (slds-tree) */
+  --tree-foreground: #2e2e2e;
+  --tree-item-hover: var(--slds-r-color-brand-90, #d6e6ff);
+  --tree-accent: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --tree-toggle: var(--slds-g-color-accent-2, var(--slds-r-color-brand-40, #0250d9));
+  --tree-toggle-hover: var(--slds-g-color-on-surface-3, #03234d);
+  --tree-header-weight: 600;
+  --tree-mark: #f9e3b6;
+  --tree-mark-foreground: #181818;
+
+  /* Dual listbox (slds-dueling-list) */
+  --dual-listbox-selected-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+  --dual-listbox-selected-hover: var(--slds-g-color-accent-container-3, var(--slds-r-color-brand-30, #022ac0));
+  --dual-listbox-spinner: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --dual-listbox-loading-overlay: color-mix(in oklab, #ffffff, transparent 25%);
+
+  /* Carousel (slds-carousel) */
+  --carousel-foreground: #2e2e2e;
+  --carousel-radius: 1.25rem;
+  --carousel-surface: #ffffff;
+  --carousel-title-size: 1rem;
+  --carousel-title-weight: 600;
+  --carousel-indicator-hover: #f3f3f3;
+  --carousel-indicator-active: #045dec;
+  --carousel-indicator-shadow-active: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --carousel-indicator-focus: var(--slds-g-color-accent-container-3, var(--slds-r-color-brand-30, #022ac0));
+  --carousel-indicator-border-focus: var(--slds-r-color-brand-30, #022ac0);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* shadcn semantic tokens */
+  --background: #242424;
+  --foreground: var(--slds-g-color-on-surface-3, #d8e6fe);
+  --card: #242424;
+  --card-foreground: #aeaeae;
+  --popover: #242424;
+  --popover-foreground: #e5e5e5;
+  --primary: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --primary-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+  --secondary: #181818;
+  --secondary-foreground: #e5e5e5;
+  --muted: #181818;
+  --muted-foreground: #aeaeae;
+  --accent: var(--slds-r-color-brand-10, #001642);
+  --accent-foreground: #e5e5e5;
+  --destructive: #fe8aa7;
+  --border: #444444;
+  --input: #757575;
+  --ring: var(--slds-r-color-brand-85, #c2daff);
+  --chart-1: #0e70c7;
+  --chart-2: #3296ed;
+  --chart-3: #7719e3;
+  --chart-4: #9d53f2;
+  --chart-5: #067d77;
+  --chart-6: #26aba4;
+  --sidebar: #242424;
+  --sidebar-foreground: var(--slds-g-color-on-surface-3, #d8e6fe);
+  --sidebar-primary: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --sidebar-primary-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+  --sidebar-accent: color-mix(in srgb, var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe)) 10%, transparent);
+  --sidebar-accent-foreground: var(--slds-r-color-brand-85, #c2daff);
+  --sidebar-border: #444444;
+  --sidebar-ring: var(--slds-r-color-brand-85, #c2daff);
+  --radius: 0.5rem;
+
+  /* SLDS extras, registered as color utilities */
+  --page: #181818;
+  --container: #2e2e2e;
+  --heading: var(--slds-g-color-on-surface-3, #d8e6fe);
+  --link: var(--slds-g-color-accent-2, var(--slds-r-color-brand-70, #7cb1fe));
+  --link-hover: var(--slds-g-color-accent-3, var(--slds-r-color-brand-80, #a8cbff));
+  --focus: var(--slds-r-color-brand-85, #c2daff);
+  --border-strong: #757575;
+  --primary-hover: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-90, #d6e6ff));
+  --primary-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-80, #a8cbff));
+  --primary-deep: var(--slds-r-color-brand-85, #c2daff);
+  --selected: var(--slds-r-color-brand-10, #001642);
+  --inverse: #aacbff;
+  --inverse-foreground: #181818;
+  --border-inverse: #181818;
+  --neutral: #757575;
+  --disabled: #757575;
+  --disabled-container: #2e2e2e;
+  --disabled-border: #757575;
+  --disabled-strong: #939393;
+  --disabled-container-strong: #444444;
+  --error-base: #e3066a;
+  --error-container: #8a033e;
+  --on-error: #fddde3;
+  --success: #0b827c;
+  --success-container: #024d4c;
+  --on-success: #acf3e4;
+  --warning-container: #6f3400;
+  --on-warning: #f9e3b6;
+  --info-container: #014486;
+  --on-info: #d8e6fe;
+
+  /* Scale: radius, elevation, type, focus */
+  --radius-1: 0.25rem;
+  --radius-2: 0.5rem;
+  --radius-3: 0.75rem;
+  --radius-4: 1.25rem;
+  --radius-pill: 15rem;
+  --elevation-1: 0px 0px 2px 0px #0000005c, 0px 2px 2px 0px #0000005c, 0px -1px 2px 0px #00000033;
+  --elevation-2: 0px 0px 5px 0px #00000052, 0px 3px 3px 0px #00000052, 0px -1px 2px 0px #0000002e;
+  --elevation-3: 0px 0px 7px 0px #00000047, 0px 5px 5px 0px #00000047, 0px -1px 2px 0px #00000029;
+  --elevation-4: 0px 0px 10px 0px #0000003d, 0px 7px 7px 0px #0000003d, 0px -1px 3px 0px #00000024;
+  --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-mono: Consolas, Menlo, Monaco, Courier, monospace;
+  --font-size-base: 0.8125rem;
+  --line-height-base: var(--slds-g-font-lineheight-var-base, var(--slds-g-font-line-height-var-base, 1.5));
+  --control-height: calc(1.875rem + 2px);
+  --shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff);
+  --shadow-focus-outset: 0px 0px 0px 2px #000000, 0px 0px 0px 4px var(--slds-r-color-brand-85, #c2daff);
+  --shadow-focus-inset: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff) inset, 0px 0px 0px 4px #000000 inset;
+  --page-title-size: 1.75rem;
+  --page-title-weight: 400;
+
+  /* Button */
+  --button-radius: 15rem;
+  --button-padding-inline: 1rem;
+  --button-font-weight: 600;
+  --button-foreground: var(--slds-g-color-accent-2, var(--slds-r-color-brand-70, #7cb1fe));
+  --button-foreground-hover: var(--slds-g-color-on-surface-3, #d8e6fe);
+  --button-shadow-active: 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.35) inset, 0px 1px 0px 0px rgba(0, 0, 0, 0.15) inset;
+  --button-bordered-transform-hover: translateY(-1.5px);
+  --button-bordered-shadow-hover: 0 1.5px 0 0 #444444;
+  --button-brand-transform-hover: translateY(-2px);
+  --button-brand-shadow-hover: 0 2px 0 0 var(--slds-r-color-brand-30, #022ac0);
+  --button-inverse-shadow-hover: 0 2px 0 0 #5c5c5c;
+  --button-icon-foreground: var(--slds-g-color-accent-2, var(--slds-r-color-brand-70, #7cb1fe));
+  --button-brand-foreground-hover: var(--slds-g-color-on-accent-2, var(--slds-r-color-brand-40, #0250d9));
+  --button-destructive: #e3066a;
+  --button-destructive-hover: #fddde3;
+  --button-destructive-foreground: #ffffff;
+  --button-destructive-foreground-hover: #b60554;
+  --button-destructive-shadow-hover: 0 2px 0 0 #b60554;
+  --button-destructive-border-hover: #fdb6c5;
+  --button-success: #0b827c;
+  --button-success-hover: #acf3e4;
+  --button-success-foreground: #ffffff;
+  --button-success-foreground-hover: #056764;
+  --button-success-shadow-hover: 0 2px 0 0 #056764;
+
+  /* Input */
+  --input-radius: 0.5rem;
+  --input-padding-inline: 0.5rem;
+  --input-foreground: #e5e5e5;
+  --input-placeholder: #aeaeae;
+  --input-border-focus: #757575;
+  --input-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff);
+  --input-background-invalid: #8a033e;
+  --input-foreground-invalid: #fe8aa7;
+  --input-border-invalid: #fe8aa7;
+  --input-background-disabled: #2e2e2e;
+  --input-border-disabled: #757575;
+  --input-foreground-disabled: #757575;
+
+  /* Card */
+  --card-radius: 1.25rem;
+  --card-border: transparent;
+  --card-shadow: none;
+  --card-spacing-block: var(--slds-g-spacing-var-block-3, 0.75rem);
+  --card-spacing-inline: var(--slds-g-spacing-var-inline-4, 1rem);
+  --card-body-spacing-inline: var(--slds-g-spacing-var-inline-3, 0.75rem);
+  --card-title-size: var(--slds-g-font-scale-var-3, 1.25rem);
+  --card-title-weight: 400;
+  --card-title-line-height: 1.25;
+  --card-description-size: 0.75rem;
+  --card-sm-radius: 0.75rem;
+  --card-sm-title-size: 1rem;
+  --card-sm-title-weight: 600;
+
+  /* Page header */
+  --page-header-background: #181818;
+  --page-header-border: #444444;
+  --page-header-border-width: 0;
+  --page-header-radius: 0;
+  --page-header-shadow: none;
+  --page-header-spacing-block: var(--slds-g-spacing-var-block-4, 1rem);
+  --page-header-spacing-inline: var(--slds-g-spacing-var-inline-4, 1rem);
+  --page-header-detail-background: #181818;
+  --page-title-line-height: 1.25;
+  --page-header-switcher-offset: 0.25rem;
+
+  /* List view header */
+  --list-view-title-line-height: 1.75;
+
+  /* Tabs */
+  --tabs-height: 2.5rem;
+  --tabs-font-size: var(--slds-g-font-scale-var-1, 0.875rem);
+  --tabs-font-weight: 600;
+  --tabs-font-weight-active: 600;
+  --tabs-foreground: #aeaeae;
+  --tabs-foreground-hover: var(--slds-r-color-brand-85, #c2daff);
+  --tabs-foreground-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-80, #a8cbff));
+  --tabs-indicator-hover: var(--slds-r-color-brand-85, #c2daff);
+  --tabs-indicator-hover-size: 3px;
+  --tabs-indicator-active: var(--slds-g-color-accent-2, var(--slds-r-color-brand-70, #7cb1fe));
+  --tabs-indicator-active-size: 3px;
+  --tabs-border: #444444;
+  --tabs-scoped-background: #242424;
+  --tabs-scoped-background-hover: var(--slds-r-color-brand-10, #001642);
+  --tabs-scoped-background-active: #242424;
+  --tabs-scoped-foreground: #aeaeae;
+  --tabs-scoped-radius: 0;
+  --tabs-vertical-nav-width: 15rem;
+
+  /* Popover */
+  --popover-border-width: 0;
+  --popover-shadow: 0px 0px 10px 0px #0000003d, 0px 7px 7px 0px #0000003d, 0px -1px 3px 0px #00000024;
+  --popover-body-foreground: #aeaeae;
+  --popover-title-foreground: var(--slds-g-color-on-surface-3, #d8e6fe);
+  --popover-title-size: 1.25rem;
+  --popover-title-weight: 400;
+  --popover-title-line-height: 1.25;
+
+  /* Tooltip */
+  --tooltip: #aacbff;
+  --tooltip-max-width: 20rem;
+  --tooltip-shadow: 0px 0px 7px 0px #00000047, 0px 5px 5px 0px #00000047, 0px -1px 2px 0px #00000029;
+  --tooltip-foreground: #181818;
+  --tooltip-font-size: 0.75rem;
+  --tooltip-nubbin-shadow: 2px 2px 2px 0 #0000003d;
+
+  /* Progress bar */
+  --progress-track: #2e2e2e;
+
+  /* Slider */
+  --slider-track: #444444;
+  --slider-track-radius: 0.25rem;
+  --slider-thumb: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --slider-thumb-hover: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-90, #d6e6ff));
+  --slider-thumb-focus: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-90, #d6e6ff));
+  --slider-thumb-active: var(--slds-g-color-accent-container-2, var(--slds-r-color-brand-90, #d6e6ff));
+  --slider-thumb-shadow-focus: 0px 0px 0px 2px #000000, 0px 0px 0px 4px var(--slds-r-color-brand-85, #c2daff);
+  --slider-thumb-disabled: #757575;
+  --slider-track-disabled: #757575;
+
+  /* Select (picklist) */
+  --select-icon: #aeaeae;
+  --select-shadow-invalid: none;
+  --select-font-size: 0.75rem;
+  --select-content-max-height: calc((1.5rem + 1rem) * 7);
+  --select-label-weight: 600;
+  --select-check: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --select-item-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff) inset;
+  --select-disabled: #757575;
+
+  /* Badge */
+  --badge-radius: 0.25rem;
+  --badge-font-size: 0.75rem;
+
+  /* Alert (scoped notification, alert banner) */
+  --alert-font-weight: 600;
+  --alert-background: #2e2e2e;
+  --alert-foreground: #aeaeae;
+  --alert-icon: #aeaeae;
+  --alert-close-hover: var(--slds-g-color-on-surface-3, #d8e6fe);
+  --alert-title-weight: 700;
+
+  /* Label and field (form element) */
+  --label-foreground: #e5e5e5;
+  --label-font-size: 0.8125rem;
+  --label-font-weight: 600;
+  --label-gap: 0.25rem;
+  --field-description-size: 0.75rem;
+  --field-description-foreground: #aeaeae;
+  --field-legend-size: 0.875rem;
+  --field-legend-weight: 600;
+  --field-static-size: 0.8125rem;
+  --field-static-foreground: #e5e5e5;
+  --field-horizontal-spacing-block: var(--slds-g-spacing-var-1, 0.25rem);
+  --field-horizontal-spacing-inline: 0.25rem;
+
+  /* Table */
+  --table-foreground: #ffffff;
+  --table-head-weight: 500;
+  --table-header-background: #181818;
+  --table-header-foreground: #aeaeae;
+  --table-header-weight: 600;
+  --table-radius: calc(4px * 2);
+  --table-border-inline: #444444;
+  --table-row-shadow-hover: none;
+  --table-row-border-hover: #757575;
+  --table-row-selected: var(--slds-r-color-brand-10, #001642);
+  --table-row-border-selected: var(--slds-r-color-brand-70, #7cb1fe);
+  --table-header-background-hover: #2e2e2e;
+  --table-sort-icon: #aeaeae;
+  --table-resize-color: #444444;
+  --table-resize-color-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-80, #a8cbff));
+  --table-row-number-size: 0.75rem;
+
+  /* Spinner */
+  --spinner: #757575;
+
+  /* Checkbox */
+  --checkbox-radius: 0.25rem;
+  --checkbox-border: #757575;
+  --checkbox-background: #242424;
+  --checkbox-background-checked: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --checkbox-foreground-checked: var(--slds-g-color-on-accent-1, #ffffff);
+  --checkbox-shadow-checked: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --checkbox-border-focus: #757575;
+  --checkbox-border-invalid: #fe8aa7;
+  --checkbox-background-invalid: #ff538a;
+  --checkbox-foreground-invalid: #000000;
+
+  /* Radio */
+  --radio-border: #757575;
+  --radio-background: #242424;
+  --radio-shadow: none;
+  --radio-background-checked: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --radio-shadow-checked: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --radio-dot: var(--slds-g-color-on-accent-1, #ffffff);
+  --radio-border-focus: #757575;
+  --radio-border-invalid: #fe8aa7;
+  --radio-background-invalid: #ff538a;
+  --radio-dot-invalid: #000000;
+
+  /* Button group */
+  --button-group-inset: #000000;
+
+  /* Avatar */
+  --avatar-radius: 100%;
+  --avatar-font-size: 0.875rem;
+  --avatar-sm-font-size: 0.625rem;
+  --avatar-lg-font-size: 1.25rem;
+  --avatar-background: var(--slds-g-color-accent-container-1, var(--slds-r-color-brand-50, #066afe));
+  --avatar-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+
+  /* Toast (sonner) */
+  --toast-radius: 0.5rem;
+  --toast-width: 30rem;
+  --toast-title-size: 1rem;
+  --toast-title-line-height: 1.25;
+  --toast-title-weight: 600;
+
+  /* Dialog (modal) */
+  --modal-backdrop: color-mix(in oklab, #020202, transparent 20%);
+  --modal-radius: 1.25rem;
+  --modal-background: #242424;
+  --modal-foreground: #aeaeae;
+  --modal-border: #444444;
+  --modal-border-width: 2px;
+  --modal-title-size: 1.25rem;
+  --modal-title-weight: 400;
+  --modal-footer-background: #242424;
+
+  /* Alert dialog (prompt) */
+  --prompt-title-align: left;
+  --prompt-footer-border-width: 1px;
+  --prompt-footer-align: right;
+  --prompt-title-size: 1.5rem;
+  --prompt-title-line-height: 1.25;
+  --prompt-padding-inline: 2rem;
+
+  /* Sheet (panel) */
+  --panel-background: #242424;
+  --panel-foreground: #aeaeae;
+  --panel-border: #2e2e2e;
+  --panel-title-size: 1.25rem;
+  --panel-shadow-right: 0px 0px 7px 0px #00000047, -5px 0px 5px 0px #00000047, 1px 0px 2px 0px #00000029;
+  --panel-shadow-left: 0px 0px 7px 0px #00000047, 5px 0px 5px 0px #00000047, -1px 0px 3px 0px #00000029;
+  --panel-shadow-top: 0px 0px 7px 0px #00000047, 0px 5px 5px 0px #00000047, 0px -1px 2px 0px #00000029;
+  --panel-shadow-bottom: 0px 0px 7px 0px #00000047, 0px -5px 5px 0px #00000047, 0px 1px 2px 0px #00000029;
+
+  /* Menu (dropdown menu) */
+  --menu-font-size: 0.75rem;
+  --menu-label-weight: 600;
+  --menu-item-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff) inset;
+  --menu-disabled: #757575;
+  --menu-icon: #aeaeae;
+  --menu-check: var(--slds-g-color-accent-2, var(--slds-r-color-brand-70, #7cb1fe));
+
+  /* Context bar (menubar; navigation-menu later) */
+  --context-bar-height: 2.5rem;
+  --context-bar-padding-block: 0.25rem;
+  --context-bar-border-width: 0;
+  --context-bar-border: var(--slds-g-color-accent-2, var(--slds-r-color-brand-70, #7cb1fe));
+  --context-bar-gap: 0.25rem;
+  --context-bar-item-radius: 0.75rem;
+  --context-bar-item-max-width: 20rem;
+  --context-bar-item-weight: 500;
+  --context-bar-item-background-hover: transparent;
+  --context-bar-indicator-size: 3px;
+  --context-bar-indicator-hover: var(--slds-r-color-brand-85, #c2daff);
+  --context-bar-focus: var(--slds-r-color-brand-85, #c2daff);
+  --context-bar-focus-decoration: none;
+
+  /* Sidebar (vertical navigation) */
+  --sidebar-item-foreground: #aeaeae;
+  --sidebar-item-foreground-active: var(--slds-g-color-accent-3, var(--slds-r-color-brand-80, #a8cbff));
+  --sidebar-item-weight-active: 600;
+  --sidebar-bar: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --sidebar-shade-border: #181818;
+
+  /* Calendar (date picker) */
+  --calendar-font-size: 0.75rem;
+  --calendar-day-foreground: #e5e5e5;
+  --calendar-day-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff) inset;
+  --calendar-day-disabled: #757575;
+
+  /* Section (expandable section, record form's section bar) */
+  --section-title-size: var(--slds-g-font-scale-var-3, 1.25rem);
+  --section-title-weight: 400;
+  --record-section-title-size: 1rem;
+
+  /* Record pages (inline edit, docked form footer) */
+  --field-edited-background: #281202;
+  --docked-form-footer-background: #242424;
+  --docked-form-footer-shadow: 0px 0px 5px 0px #00000052, 0px -3px 3px 0px #00000052, 0px 1px 2px 0px #0000002e;
+
+  /* Accordion */
+  --accordion-spacing: 0.75rem;
+  --accordion-title-size: var(--slds-g-font-scale-var-3, 1.25rem);
+  --accordion-title-weight: 400;
+  --accordion-title-line-height: 1.25;
+  --accordion-title-foreground-hover: var(--slds-g-color-accent-container-3, var(--slds-r-color-brand-80, #a8cbff));
+  --accordion-trigger-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff) inset;
+  --accordion-disabled: #757575;
+
+  /* Textarea */
+  --textarea-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff) inset;
+
+  /* Input group (input with icons) */
+  --input-group-icon: #aeaeae;
+  --input-group-icon-disabled: #757575;
+
+  /* Switch (checkbox toggle) */
+  --switch-background: #5c5c5c;
+  --switch-border: #5c5c5c;
+  --switch-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --switch-background-hover: #757575;
+  --switch-border-hover: #757575;
+  --switch-border-checked: var(--slds-g-color-border-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --switch-border-checked-hover: var(--slds-r-color-brand-70, #7cb1fe);
+  --switch-thumb: var(--slds-g-color-on-accent-1, #ffffff);
+  --switch-thumb-hover: var(--slds-g-color-on-accent-2, var(--slds-r-color-brand-40, #0250d9));
+
+  /* Kbd (no SLDS counterpart) */
+  --kbd-font-size: 0.75rem;
+
+  /* Scroll area (no SLDS counterpart) */
+  --scrollbar-thumb: #757575;
+  --scrollbar-thumb-hover: #939393;
+  --scrollbar-track-hover: #181818;
+
+  /* Empty (illustration, without the illustration) */
+  --empty-title-size: 1.5rem;
+  --empty-title-line-height: 1.25;
+  --empty-icon: #aeaeae;
+
+  /* Item (slds-tile, slds-media, slds-box) */
+  --item-description-size: 0.75rem;
+  --item-border-hover: var(--slds-r-color-brand-70, #7cb1fe);
+  --item-shadow-hover: 0 0 0 1px var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe)) inset;
+
+  /* Icon (slds-icon_container, slds-icon) */
+  --icon-radius: 100%;
+  --icon-foreground: #aeaeae;
+  --icon-inverse: #000000;
+  --icon-warning: #e4a201;
+  --icon-error: #fe8aa7;
+  --icon-success: #01c3b3;
+
+  /* Pill (slds-pill, slds-pill_container) */
+  --pill-font-size: 0.75rem;
+  --pill-line-height: 1.25;
+  --pill-background: #242424;
+  --pill-background-hover: var(--slds-r-color-brand-10, #001642);
+  --pill-shadow-focus: 0px 0px 0px 2px var(--slds-r-color-brand-85, #c2daff) inset;
+  --pill-border-invalid: #fe8aa7;
+  --pill-foreground-invalid: #fe8aa7;
+  --pill-container-background: #242424;
+
+  /* Lookup (slds-combobox, entity autocomplete) */
+  --lookup-selection-shadow: 0 0 0 2px transparent inset, 0 0 0 3px #444444 inset;
+  --lookup-spinner: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --lookup-mark-weight: 700;
+
+  /* Path (slds-path) */
+  --path-incomplete: #2e2e2e;
+  --path-incomplete-hover: #444444;
+  --path-incomplete-foreground: #e5e5e5;
+  --path-complete: #024d4c;
+  --path-complete-hover: #024d4c;
+  --path-complete-foreground: #acf3e4;
+  --path-current-border: var(--slds-r-color-brand-70, #7cb1fe);
+  --path-current-border-hover: var(--slds-r-color-brand-80, #a8cbff);
+  --path-current-foreground: var(--slds-r-color-brand-80, #a8cbff);
+  --path-active: #aacbff;
+  --path-active-hover: #aacbff;
+  --path-active-foreground: #181818;
+  --path-won: #024d4c;
+  --path-lost: #8a033e;
+  --path-lost-foreground: #fddde3;
+  --path-border-width: 0.0625rem;
+  --path-current-height: 1.875rem;
+
+  /* Chart (no SLDS counterpart; the SLDS Charts guidelines) */
+  --chart-text-size: 0.75rem;
+  --chart-value-size: 2rem;
+  --chart-unit-size: 1.25rem;
+  --chart-positive: #01c3b3;
+  --chart-negative: #fe8aa7;
+  --chart-warning: #e4a201;
+  --chart-other: #aeaeae;
+
+  /* Metric and gauge (slds-text-title, slds-text-heading_large) */
+  --metric-label-size: 0.75rem;
+  --metric-label-line-height: 1.25;
+  --metric-value-line-height: 1.25;
+  --gauge-bar-value-size: 1.25rem;
+
+  /* Dynamic icon (slds-icon-ellie, -eq, -score, -strength, -trend) */
+  --dynamic-icon-accent: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --dynamic-icon-on-accent: var(--slds-g-color-on-accent-1, #ffffff);
+
+  /* File selector (slds-file-selector) */
+  --file-selector-border-drag: var(--slds-r-color-brand-70, #7cb1fe);
+  --file-selector-drag-background: var(--slds-r-color-brand-10, #001642);
+  --file-selector-body-background: #000000;
+  --file-selector-body-border: transparent;
+  --file-selector-title-size: 1.5rem;
+  --file-selector-title-line-height: 1.25;
+  --file-selector-dragging-foreground: #757575;
+
+  /* Activity timeline (slds-timeline) */
+  --timeline-task: rgb(75, 192, 118);
+  --timeline-event: rgb(203, 101, 255);
+  --timeline-call: rgb(72, 195, 204);
+  --timeline-email: rgb(147, 147, 147);
+  --timeline-title-size: 0.875rem;
+  --timeline-title-weight: 600;
+  --timeline-date-size: 0.75rem;
+
+  /* Progress indicator (slds-progress) */
+  --progress-indicator-marker-border: var(--slds-g-color-on-accent-1, #ffffff);
+  --progress-indicator-marker-border-hover: var(--slds-r-color-brand-70, #7cb1fe);
+  --progress-indicator-check-vertical: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+
+  /* Progress ring (slds-progress-ring) */
+  --progress-ring-active-step: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --progress-ring-content-size: 0.75rem;
+  --progress-ring-content-size-large: 0.8125rem;
+  --progress-ring-content-weight: 400;
+
+  /* Visual picker (slds-visual-picker) */
+  --visual-picker-accent: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --visual-picker-shadow: none;
+  --visual-picker-shadow-selected: 0 0 0 1px var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe)) inset;
+  --visual-picker-disabled: #757575;
+  --visual-picker-check: var(--slds-g-color-on-accent-1, #ffffff);
+  --visual-picker-title-size: 1rem;
+  --visual-picker-title-size-figure: 1.5rem;
+  --visual-picker-description-size: 0.75rem;
+  --visual-picker-line-height: 1.25;
+
+  /* Markdown (slds-markdown) */
+  --markdown-foreground: #e5e5e5;
+  --markdown-h1-size: 2rem;
+  --markdown-h2-size: 1.75rem;
+  --markdown-h3-size: 1.5rem;
+  --markdown-h4-size: 1.25rem;
+  --markdown-h5-size: 1rem;
+  --markdown-h6-size: 0.875rem;
+  --markdown-code-size: 0.75rem;
+  --markdown-surface: #020202;
+  --markdown-code-border: #444444;
+  --markdown-table-border: #5c5c5c;
+  --markdown-divider: #5c5c5c;
+  --markdown-task-border: #aeaeae;
+
+  /* Tree (slds-tree) */
+  --tree-foreground: #e5e5e5;
+  --tree-item-hover: var(--slds-r-color-brand-10, #001642);
+  --tree-accent: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --tree-toggle: var(--slds-g-color-accent-2, var(--slds-r-color-brand-70, #7cb1fe));
+  --tree-toggle-hover: var(--slds-g-color-on-surface-3, #d8e6fe);
+  --tree-header-weight: 600;
+  --tree-mark: #281202;
+  --tree-mark-foreground: #e5e5e5;
+
+  /* Dual listbox (slds-dueling-list) */
+  --dual-listbox-selected-foreground: var(--slds-g-color-on-accent-1, #ffffff);
+  --dual-listbox-selected-hover: var(--slds-g-color-accent-container-3, var(--slds-r-color-brand-80, #a8cbff));
+  --dual-listbox-spinner: var(--slds-g-color-accent-1, var(--slds-r-color-brand-50, #066afe));
+  --dual-listbox-loading-overlay: color-mix(in oklab, #242424, transparent 25%);
+
+  /* Carousel (slds-carousel) */
+  --carousel-foreground: #e5e5e5;
+  --carousel-radius: 1.25rem;
+  --carousel-surface: #242424;
+  --carousel-title-size: 1rem;
+  --carousel-title-weight: 600;
+  --carousel-indicator-hover: #181818;
+  --carousel-indicator-active: #287efe;
+  --carousel-indicator-shadow-active: 0px 1px 0px 0px rgba(0, 0, 0, 0.08) inset, 0px 0.5px 2px 0px rgba(0, 0, 0, 0.08) inset, 2px 2px 5px 0px rgba(0, 0, 0, 0.08) inset;
+  --carousel-indicator-focus: var(--slds-g-color-accent-container-3, var(--slds-r-color-brand-80, #a8cbff));
+  --carousel-indicator-border-focus: var(--slds-r-color-brand-80, #a8cbff);
+}
+
+[data-density="compact"] {
+  --slds-g-spacing-var-1: 0.125rem;
+  --slds-g-spacing-var-block-1: 0.125rem;
+  --slds-g-spacing-var-inline-1: 0.125rem;
+  --slds-g-spacing-var-2: 0.125rem;
+  --slds-g-spacing-var-block-2: 0.25rem;
+  --slds-g-spacing-var-inline-2: 0.25rem;
+  --slds-g-spacing-var-3: 0.25rem;
+  --slds-g-spacing-var-block-3: 0.5rem;
+  --slds-g-spacing-var-inline-3: 0.5rem;
+  --slds-g-spacing-var-4: 0.5rem;
+  --slds-g-spacing-var-block-4: 0.5rem;
+  --slds-g-spacing-var-inline-4: 0.75rem;
+  --slds-g-spacing-var-5: 0.75rem;
+  --slds-g-spacing-var-block-5: 0.75rem;
+  --slds-g-spacing-var-inline-5: 0.75rem;
+  --slds-g-spacing-var-6: 1rem;
+  --slds-g-spacing-var-block-6: 1rem;
+  --slds-g-spacing-var-inline-6: 1rem;
+  --slds-g-spacing-var-7: 1.5rem;
+  --slds-g-spacing-var-block-7: 1.5rem;
+  --slds-g-spacing-var-inline-7: 1.5rem;
+  --slds-g-spacing-var-8: 2rem;
+  --slds-g-spacing-var-block-8: 2rem;
+  --slds-g-spacing-var-inline-8: 2rem;
+  --slds-g-spacing-var-9: 2.5rem;
+  --slds-g-spacing-var-block-9: 2.5rem;
+  --slds-g-spacing-var-inline-9: 2.5rem;
+  --slds-g-spacing-var-10: 3rem;
+  --slds-g-spacing-var-block-10: 3rem;
+  --slds-g-spacing-var-inline-10: 3rem;
+  --slds-g-spacing-var-11: 3.5rem;
+  --slds-g-spacing-var-block-11: 3.5rem;
+  --slds-g-spacing-var-inline-11: 3.5rem;
+  --slds-g-spacing-var-12: 4rem;
+  --slds-g-spacing-var-block-12: 4rem;
+  --slds-g-spacing-var-inline-12: 4rem;
+  --slds-g-font-scale-var-2: 0.875rem;
+  --slds-g-font-scale-var-3: 1rem;
+  --slds-g-font-scale-var-4: 1.25rem;
+  --slds-g-font-lineheight-var-base: normal;
+}
+
+/* Chart palettes: Salesforce's dashboard palettes, from SLDS's Charts guidelines.
+   Switch every chart inside an element with data-chart-palette. */
+
+:root[data-chart-palette="default"],
+[data-chart-palette="default"] {
+  --chart-1: #52b7d8;
+  --chart-2: #e16032;
+  --chart-3: #ffb03b;
+  --chart-4: #54a77b;
+  --chart-5: #4fd2d2;
+  --chart-6: #e287b2;
+}
+
+:root[data-chart-palette="color-safe"],
+[data-chart-palette="color-safe"] {
+  --chart-1: #529ee0;
+  --chart-2: #d9a6c2;
+  --chart-3: #08916d;
+  --chart-4: #f59b00;
+  --chart-5: #006699;
+  --chart-6: #f0e442;
+}
+
+:root[data-chart-palette="bluegrass"],
+[data-chart-palette="bluegrass"] {
+  --chart-1: #c7f296;
+  --chart-2: #94e7a8;
+  --chart-3: #51d2bb;
+  --chart-4: #27aab0;
+  --chart-5: #116985;
+  --chart-6: #053661;
+}
+
+:root[data-chart-palette="sunrise"],
+[data-chart-palette="sunrise"] {
+  --chart-1: #f5de98;
+  --chart-2: #f5c062;
+  --chart-3: #f59623;
+  --chart-4: #ce6716;
+  --chart-5: #762f3d;
+  --chart-6: #300561;
+}
+
+:root[data-chart-palette="water"],
+[data-chart-palette="water"] {
+  --chart-1: #96f2ee;
+  --chart-2: #68ceee;
+  --chart-3: #2d9ced;
+  --chart-4: #0e6ece;
+  --chart-5: #073e92;
+  --chart-6: #051c61;
+}
+
+:root[data-chart-palette="watermelon"],
+[data-chart-palette="watermelon"] {
+  --chart-1: #f598a7;
+  --chart-2: #f56580;
+  --chart-3: #f4284e;
+  --chart-4: #c11c2f;
+  --chart-5: #5c3f22;
+  --chart-6: #0a611b;
+}

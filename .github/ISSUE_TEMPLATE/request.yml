@@ -1,0 +1,27 @@
+name: Request
+description: A new item, or a change to one you use.
+type: Feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search [ui.wisty.ai](https://ui.wisty.ai) first, since an item may go by another name than in SLDS. The dueling picklist, for one, is Dual listbox here.
+  - type: input
+    id: item
+    attributes:
+      label: Item
+      description: The name of the item to change, or a name for a new one.
+    validations:
+      required: true
+  - type: textarea
+    id: job
+    attributes:
+      label: What you'd use it for
+      description: The screen you're building, and what you use there today.
+    validations:
+      required: true
+  - type: textarea
+    id: salesforce
+    attributes:
+      label: What it matches in Salesforce
+      description: A link to the SLDS blueprint or Lightning component, or a screenshot from an org.

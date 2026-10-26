@@ -1,0 +1,124 @@
+"use client"
+
+import * as React from "react"
+import { cn } from "@/lib/utils"
+
+function Table({ className, ...props }: React.ComponentProps<"table">) {
+  return (
+    <div
+      data-slot="table-container"
+      className="relative w-full overflow-x-auto"
+    >
+      <table
+        data-slot="table"
+        className={cn(
+          "w-full caption-bottom border-separate border-spacing-0 rounded-(--table-radius) border-y border-x border-border border-x-(color:--table-border-inline) bg-background text-(length:--font-size-base) text-(--table-foreground)",
+          "[&>:nth-child(1_of_thead,tbody,tfoot)>tr:first-child>:first-child]:rounded-ss-[max(0px,calc(var(--table-radius)-1px))] [&>:nth-child(1_of_thead,tbody,tfoot)>tr:first-child>:last-child]:rounded-se-[max(0px,calc(var(--table-radius)-1px))] [&>:nth-last-child(1_of_thead,tbody,tfoot)>tr:last-child>:first-child]:rounded-es-[max(0px,calc(var(--table-radius)-1px))] [&>:nth-last-child(1_of_thead,tbody,tfoot)>tr:last-child>:last-child]:rounded-ee-[max(0px,calc(var(--table-radius)-1px))]",
+          className
+        )}
+        {...props}
+      />
+    </div>
+  )
+}
+
+function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
+  return (
+    <thead
+      data-slot="table-header"
+      className={cn(
+        "[&_th]:bg-(--table-header-background) [&_th]:leading-[normal] [&_th]:font-(--table-header-weight) [&_th]:text-(--table-header-foreground) [&>tr+tr>th]:border-t [&>tr:last-child>th]:border-b",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
+  return (
+    <tbody
+      data-slot="table-body"
+      className={cn("[&>tr+tr>*]:border-t", className)}
+      {...props}
+    />
+  )
+}
+
+function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
+  return (
+    <tfoot
+      data-slot="table-footer"
+      className={cn(
+        "[&>tr:first-child>*]:border-t [&_td]:bg-(--table-header-background) [&_th]:bg-(--table-header-background) font-(--table-header-weight)",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
+  return (
+    <tr
+      data-slot="table-row"
+      className={cn(
+        // data-state=selected comes from the caller's row, not from a base.
+        "has-aria-expanded:bg-muted in-data-[slot=table-body]:not-data-[state=selected]:hover:bg-muted in-data-[slot=table-body]:hover:*:shadow-(--table-row-shadow-hover) in-data-[slot=table-body]:hover:[&+tr>*]:border-t-(color:--table-row-border-hover) data-[state=selected]:bg-(--table-row-selected) data-[state=selected]:*:border-t-(color:--table-row-border-selected) data-[state=selected]:[&+tr>*]:border-t-(color:--table-row-border-selected)",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableHead({ className, ...props }: React.ComponentProps<"th">) {
+  return (
+    <th
+      data-slot="table-head"
+      className={cn(
+        "relative p-2 text-start align-middle font-(--table-head-weight) whitespace-nowrap [&:has([role=checkbox])]:w-8",
+        "[&[aria-sort]]:p-0 [&[aria-sort]>button]:flex [&[aria-sort]>button]:h-8 [&[aria-sort]>button]:w-full [&[aria-sort]>button]:items-center [&[aria-sort]>button]:rounded-[inherit] [&[aria-sort]>button]:px-2 [&[aria-sort]>button]:outline-none [&[aria-sort]>button:focus-visible]:bg-(--table-header-background-hover) [&[aria-sort]>button:focus-visible]:shadow-(--shadow-focus-inset) [&[aria-sort]>button:hover]:bg-(--table-header-background-hover) [&[aria-sort]>button>svg]:ms-1 [&[aria-sort]>button>svg]:size-3 [&[aria-sort]>button>svg]:shrink-0 [&[aria-sort]>button>svg]:text-(--table-sort-icon) [&[aria-sort=ascending]>button>svg]:rotate-180 [&[aria-sort=none]>button>svg]:hidden [&[aria-sort]>button:focus-visible>svg]:block [&[aria-sort]>button:focus-visible>svg]:text-link [&[aria-sort]>button:hover>svg]:block [&[aria-sort]>button:hover>svg]:text-link",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableCell({ className, ...props }: React.ComponentProps<"td">) {
+  return (
+    <td
+      data-slot="table-cell"
+      className={cn(
+        "relative p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:w-8 [&>[role=checkbox]]:inline-flex [&>[role=checkbox]]:align-middle",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TableCaption({
+  className,
+  ...props
+}: React.ComponentProps<"caption">) {
+  return (
+    <caption
+      data-slot="table-caption"
+      className={cn("mt-2 text-start text-muted-foreground", className)}
+      {...props}
+    />
+  )
+}
+
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+}
