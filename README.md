@@ -8,6 +8,7 @@
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-032d60?style=flat-square"></a>
   <a href="https://ui.wisty.ai/docs/installation"><img alt="shadcn registry: @wisty" src="https://img.shields.io/badge/shadcn%20registry-%40wisty-0176d3?style=flat-square"></a>
   <a href="https://ui.wisty.ai/docs/radix-or-base-ui"><img alt="For Radix and Base UI" src="https://img.shields.io/badge/for-Radix%20%7C%20Base%20UI-032d60?style=flat-square"></a>
+  <a href="#items"><img alt="87 components and blocks" src="https://img.shields.io/badge/components%20and%20blocks-87-0176d3?style=flat-square"></a>
 </p>
 
 <p align="center">
