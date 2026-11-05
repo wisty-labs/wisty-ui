@@ -8,7 +8,7 @@
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-032d60?style=flat-square"></a>
   <a href="https://ui.wisty.ai/docs/installation"><img alt="shadcn registry: @wisty" src="https://img.shields.io/badge/shadcn%20registry-%40wisty-0176d3?style=flat-square"></a>
   <a href="https://ui.wisty.ai/docs/radix-or-base-ui"><img alt="For Radix and Base UI" src="https://img.shields.io/badge/for-Radix%20%7C%20Base%20UI-032d60?style=flat-square"></a>
-  <a href="#items"><img alt="87 components and blocks" src="https://img.shields.io/badge/components%20and%20blocks-87-0176d3?style=flat-square"></a>
+  <a href="#items"><img alt="91 components and blocks" src="https://img.shields.io/badge/components%20and%20blocks-91-0176d3?style=flat-square"></a>
 </p>
 
 <p align="center">
@@ -29,24 +29,14 @@ This repository holds the source of the free library. It's generated from Wisty 
 
 ## Install
 
-Add the registry to your project's `components.json`:
-
-```json
-{
-	"registries": {
-		"@wisty": "https://ui.wisty.ai/r/{style}/{name}.json"
-	}
-}
-```
-
-Add the theme once, then add components:
+Wisty UI is listed in [shadcn's registry directory](https://ui.shadcn.com/docs/directory) as `@wisty`, so there's nothing to set up: the CLI adds the registry to your `components.json` itself. Add the theme once, then add components:
 
 ```bash
 npx shadcn@latest add @wisty/cosmos
 npx shadcn@latest add @wisty/button
 ```
 
-`@wisty/lightning-blue` and `@wisty/neutral` are the other themes. The [installation guide](https://ui.wisty.ai/docs/installation) covers Salesforce's React templates and importing the theme by hand.
+`@wisty/lightning-blue` and `@wisty/neutral` are the other themes. The [installation guide](https://ui.wisty.ai/docs/installation) covers Salesforce's React templates, importing the theme by hand, and shadcn 3 and older, which need the registry in `components.json` first.
 
 ## What's here
 
@@ -56,6 +46,10 @@ npx shadcn@latest add @wisty/button
 - `registry/themes/`: `tokens.css`, the token names every item reads, and the Cosmos, Lightning Blue and Neutral themes.
 
 Each item's folder has a `README.md`: when to use it, its rules, its API reference and the code of every example.
+
+## Use it from an agent
+
+This repository is also a Cursor plugin. `.cursor-plugin/plugin.json` is its manifest, `mcp.json` connects Wisty UI's MCP server at `https://ui.wisty.ai/mcp`, and `skills/wisty-ui/` holds the skill that tells the agent when to use Wisty UI and how to install it. Other agents can connect the same MCP server or install the skill: [Agents and MCP](https://ui.wisty.ai/docs/agents) shows how.
 
 ## Items
 
@@ -91,7 +85,9 @@ Each item's folder has a `README.md`: when to use it, its rules, its API referen
 | [Empty](registry/ui/empty) | Primitive | Says a list, table or panel has nothing in it yet, and what to do next. |
 | [Expandable section](registry/components/expandable-section) | Component | Opens and closes a titled section of a page from its gray title bar. Closed content stays mounted, hidden. |
 | [Field](registry/ui/field) | Primitive | Lays out a form control with its label, help text and error. |
+| [File card](registry/components/file-card) | Component | Shows a file as a card with its thumbnail or type icon, its name and actions. To pick files, use File selector. |
 | [File selector](registry/components/file-selector) | Component | Picks files with an Upload Files button or by dropping them on the field. The app uploads the files it picks. |
+| [Filter](registry/components/filter) | Component | Shows one filter criterion that opens an editor when pressed. For a list view's whole filter panel, use List view filter panel. |
 | [Hover card](registry/ui/hover-card) | Primitive | Previews a linked record or person while the pointer rests on the link. |
 | [Icon](registry/components/icon) | Component | Shows a Salesforce icon. Object icons sit on their own color, and utility icons take the text color. |
 | [Input](registry/ui/input) | Primitive | Takes a single line of text. |
@@ -145,6 +141,7 @@ Each item's folder has a `README.md`: when to use it, its rules, its API referen
 | [Activity timeline](registry/blocks/activity-timeline) | Block | A record's tasks, events, calls and emails in time order, with their details. The Activity tab of a record page. |
 | [KPI row](registry/blocks/kpi-row) | Block | A dashboard's header row: key figures on one card, each with its change. |
 | [List view](registry/blocks/list-view) | Block | A list of records: list views, search and a table to sort and select. Lightning's object home, for a standard or custom object. |
+| [List view filter panel](registry/blocks/list-view-filters) | Block | A list view's filter panel, with owner scope, saved filters and filter logic. |
 | [List view header](registry/blocks/list-view-header) | Block | The top of a list page, where people switch list views, search and act. The header of Lightning's object home, for a standard or custom object. |
 | [Metric trend](registry/blocks/metric-trend) | Block | A dashboard's lead chart: metrics as tabs, the selected one's trend below. Each can compare with an earlier period. |
 | [Record detail](registry/blocks/record-detail) | Block | A record's Details tab, read-only, for a standard or custom object. Same field descriptions as Record form and Record inline edit. |
@@ -153,6 +150,7 @@ Each item's folder has a `README.md`: when to use it, its rules, its API referen
 | [Record inline edit](registry/blocks/record-inline-edit) | Block | A record's Details tab, edited in place with a pencil, Cancel and Save. The app does the saving. |
 | [Record page](registry/blocks/record-page) | Block | A record page for a standard or custom object, with its header, tabs and sidebar. A page file you edit, with no props. |
 | [Related list](registry/blocks/related-list) | Block | A record's related records of one kind, with New and View All. Lightning's related list, for a standard or custom object. |
+| [Setup assistant](registry/blocks/setup-assistant) | Block | A setup checklist with actions, step progress and expandable substeps. |
 
 ### Charts
 
@@ -160,6 +158,12 @@ Each item's folder has a `README.md`: when to use it, its rules, its API referen
 | --- | --- | --- |
 | [Bar list](registry/components/bar-list) | Component | Ranks labeled values with a bar under each on one scale, with shares of a total. Rows can link to records or toggle to filter a page. |
 | [Gauge](registry/components/gauge) | Component | Shows one value against a maximum, as a dial, a ring, a bar or a row of dots. Optional ranges color the scale. |
+
+### Helpers
+
+| Item | Kind | Description |
+| --- | --- | --- |
+| [List view filtering](registry/components/list-view-filtering) | Helper | The rows a list view's saved filters keep, with Lightning's filter logic. The list view filter panel checks its filters with it. |
 
 ## License
 

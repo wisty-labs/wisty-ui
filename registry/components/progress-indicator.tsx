@@ -19,6 +19,11 @@ type ProgressIndicatorContextValue = {
   value: number
   onValueChange?: (value: number) => void
   selectAhead: boolean
+  success: boolean
+  bordered: boolean
+  count: number
+  percent: number
+  label: string
 }
 
 const ProgressIndicatorContext =
@@ -27,12 +32,10 @@ const ProgressIndicatorContext =
 // Each step's position in the list, given by the root.
 const ProgressIndicatorStepIndex = React.createContext(-1)
 
-function useProgressIndicator() {
+function useProgressIndicator(part = "ProgressIndicatorStep") {
   const context = React.useContext(ProgressIndicatorContext)
   if (!context) {
-    throw new Error(
-      "ProgressIndicatorStep must be used within a ProgressIndicator."
-    )
+    throw new Error(`${part} must be used within a ProgressIndicator.`)
   }
   return context
 }
@@ -64,6 +67,9 @@ function ProgressIndicator({
   value,
   onValueChange,
   selectAhead = false,
+  success = false,
+  bordered = false,
+  track,
   className,
   children,
   "aria-label": ariaLabel,
@@ -76,31 +82,50 @@ function ProgressIndicator({
     onValueChange?: (value: number) => void
     /** Lets people select steps after the current one. */
     selectAhead?: boolean
+    /** Vertical only: colors finished lines and checks as success, with either variant. */
+    success?: boolean
+    /** Vertical only: draws a line under each step's content but the last. */
+    bordered?: boolean
+    /** The progress bar. Omit it for ProgressIndicatorTrack, or pass null for none. */
+    track?: React.ReactNode
     /** Names the process for screen readers, like "New opportunity". */
     "aria-label": string
   }) {
   const steps = React.Children.toArray(children).filter(React.isValidElement)
+  const count = steps.length
+  const shareBetweenMarkers =
+    count > 1
+      ? Math.min(Math.max(value / (count - 1), 0), 1)
+      : value >= 1
+        ? 1
+        : 0
+  const percent = shareBetweenMarkers * 100
   const context = React.useMemo<ProgressIndicatorContextValue>(
     () => ({
       orientation: orientation ?? "horizontal",
       value,
       onValueChange,
       selectAhead,
+      success,
+      bordered,
+      count,
+      percent,
+      label: ariaLabel,
     }),
-    [orientation, value, onValueChange, selectAhead]
+    [
+      orientation,
+      value,
+      onValueChange,
+      selectAhead,
+      success,
+      bordered,
+      count,
+      percent,
+      ariaLabel,
+    ]
   )
 
-  if (steps.length === 0) return null
-
-  // The bar runs from the first marker to the last, so the current step's
-  // share is its index over the gaps between steps.
-  const share =
-    steps.length > 1
-      ? Math.min(Math.max(value / (steps.length - 1), 0), 1)
-      : value >= 1
-        ? 1
-        : 0
-  const percent = share * 100
+  if (count === 0) return null
 
   return (
     <div
@@ -112,47 +137,63 @@ function ProgressIndicator({
       )}
       {...props}
     >
-      <TooltipProvider>
-        <ol
-          data-slot="progress-indicator-list"
-          aria-label={ariaLabel}
-          className={cn(
-            "relative z-1 m-auto h-full",
-            orientation === "vertical"
-              ? "block"
-              : "flex items-center justify-between"
-          )}
-        >
-          <ProgressIndicatorContext value={context}>
+      <ProgressIndicatorContext value={context}>
+        <TooltipProvider>
+          <ol
+            data-slot="progress-indicator-list"
+            aria-label={ariaLabel}
+            className={cn(
+              "relative z-1 m-auto h-full",
+              orientation === "vertical"
+                ? "block"
+                : "flex items-center justify-between"
+            )}
+          >
             {steps.map((step, index) => (
               <ProgressIndicatorStepIndex key={step.key} value={index}>
                 {step}
               </ProgressIndicatorStepIndex>
             ))}
-          </ProgressIndicatorContext>
-        </ol>
-      </TooltipProvider>
-      {/* Drawn here, not with Progress: Base UI's Progress wraps its bar in a
-          second element, so one file can't style the bar on both bases. */}
+          </ol>
+        </TooltipProvider>
+        {track === undefined ? <ProgressIndicatorTrack /> : track}
+      </ProgressIndicatorContext>
+    </div>
+  )
+}
+
+/** The bar for the current step's share of the way, named by the indicator's aria-label. */
+function ProgressIndicatorTrack({
+  className,
+  ...props
+}: Omit<React.ComponentProps<"div">, "children">) {
+  const { orientation, percent, label } = useProgressIndicator(
+    "ProgressIndicatorTrack"
+  )
+
+  // Drawn here, not with Progress: Base UI's Progress wraps its bar in a
+  // second element, so one file can't style the bar on both bases.
+  return (
+    <div
+      data-slot="progress-indicator-track"
+      role="progressbar"
+      aria-label={label}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(percent)}
+      className={cn(
+        orientation === "vertical"
+          ? "sr-only"
+          : "absolute top-1/2 -mt-px block h-0.5 w-full bg-(--neutral)",
+        className
+      )}
+      {...props}
+    >
       <div
-        data-slot="progress-indicator-track"
-        role="progressbar"
-        aria-label={ariaLabel}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-valuenow={Math.round(percent)}
-        className={
-          orientation === "vertical"
-            ? "sr-only"
-            : "absolute top-1/2 -mt-px block h-0.5 w-full bg-(--neutral)"
-        }
-      >
-        <div
-          data-slot="progress-indicator-value"
-          className="block h-full bg-primary"
-          style={{ width: `${percent}%` }}
-        />
-      </div>
+        data-slot="progress-indicator-value"
+        className="block h-full bg-primary"
+        style={{ width: `${percent}%` }}
+      />
     </div>
   )
 }
@@ -174,6 +215,10 @@ const markerVariants = cva(
         horizontal: "",
         vertical: "z-5 me-4 min-w-4",
       },
+      success: {
+        true: "",
+        false: "",
+      },
     },
     compoundVariants: [
       {
@@ -186,18 +231,53 @@ const markerVariants = cva(
         status: "complete",
         className: "text-(--progress-indicator-check-vertical)",
       },
+      {
+        orientation: "vertical",
+        status: "complete",
+        success: true,
+        className: "text-(--chart-positive)",
+      },
     ],
   }
 )
 
 // The line between vertical markers: the half above a marker is colored
 // up to the current step, the half below up to the step before it.
-const lineClasses: Record<ProgressIndicatorStatus, string> = {
-  complete: "before:bg-primary after:bg-primary",
-  current: "before:bg-primary",
-  error: "before:bg-primary",
-  incomplete: "",
-}
+const lineVariants = cva(
+  [
+    "relative flex items-center p-0",
+    "before:absolute before:start-[calc(0.5rem-1px)] before:top-0 before:bottom-1/2 before:w-0.5 before:bg-(--neutral) before:content-['']",
+    "after:absolute after:start-[calc(0.5rem-1px)] after:top-1/2 after:bottom-0 after:w-0.5 after:bg-(--neutral) after:content-['']",
+    "first:before:hidden last:after:hidden",
+  ],
+  {
+    variants: {
+      status: {
+        complete: "before:bg-primary after:bg-primary",
+        current: "before:bg-primary",
+        error: "before:bg-primary",
+        incomplete: "",
+      },
+      success: {
+        true: "",
+        false: "",
+      },
+    },
+    compoundVariants: [
+      {
+        status: "complete",
+        success: true,
+        className:
+          "before:bg-(--chart-positive) before:opacity-30 after:bg-(--chart-positive) after:opacity-30",
+      },
+      {
+        status: ["current", "error"],
+        success: true,
+        className: "before:bg-(--chart-positive) before:opacity-30",
+      },
+    ],
+  }
+)
 
 // Hidden state words: after the label on a horizontal marker ("Contact -
 // Completed"), alone in a vertical one.
@@ -253,7 +333,7 @@ function ProgressIndicatorStep({
   /** Keeps people from selecting the step. */
   disabled?: boolean
 }) {
-  const { orientation, value, onValueChange, selectAhead } =
+  const { orientation, value, onValueChange, selectAhead, success } =
     useProgressIndicator()
   const index = React.useContext(ProgressIndicatorStepIndex)
   const current = index === value
@@ -272,19 +352,12 @@ function ProgressIndicatorStep({
         data-slot="progress-indicator-step"
         data-status={status}
         aria-current={current ? "step" : undefined}
-        className={cn(
-          "relative flex items-center p-0",
-          "before:absolute before:start-[calc(0.5rem-1px)] before:top-0 before:bottom-1/2 before:w-0.5 before:bg-(--neutral) before:content-['']",
-          "after:absolute after:start-[calc(0.5rem-1px)] after:top-1/2 after:bottom-0 after:w-0.5 after:bg-(--neutral) after:content-['']",
-          "first:before:hidden last:after:hidden",
-          lineClasses[status],
-          className
-        )}
+        className={cn(lineVariants({ status, success }), className)}
         {...props}
       >
         <span
           data-slot="progress-indicator-marker"
-          className={cn(markerVariants({ status, orientation }))}
+          className={cn(markerVariants({ status, orientation, success }))}
         >
           <ProgressIndicatorMarkerIcon status={status} />
           {word && <span className="sr-only">{word}</span>}
@@ -338,11 +411,16 @@ function ProgressIndicatorContent({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const context = React.useContext(ProgressIndicatorContext)
+  const index = React.useContext(ProgressIndicatorStepIndex)
+  const bordered = context?.bordered && index < context.count - 1
+
   return (
     <div
       data-slot="progress-indicator-content"
       className={cn(
         "mt-3 flex flex-1 items-center justify-between pb-3",
+        bordered && "border-b border-border",
         className
       )}
       {...props}
@@ -354,5 +432,6 @@ export {
   ProgressIndicator,
   ProgressIndicatorContent,
   ProgressIndicatorStep,
+  ProgressIndicatorTrack,
   progressIndicatorVariants,
 }

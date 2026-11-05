@@ -14,6 +14,7 @@ npx shadcn@latest add @wisty/progress-indicator
 - `error` (Step with an error): Setting `error` on the current step replaces its marker with an error mark, and screen readers hear "Account - Error".
 - `shade` (On a gray background): With `variant="shade"`, the space around each marker takes the gray background instead of white.
 - `vertical` (Vertical): A setup list with `orientation="vertical"`: labels beside a line, and a `ProgressIndicatorContent` adding a description to one step.
+- `success` (Success lines and borders): With `success` and `bordered`, finished lines and checks turn green and a line separates the steps. `track={null}` drops the progress bar.
 - `interactive` (Moving between steps): With `onValueChange`, clicking an earlier step goes back to it, Back and Next move the current step, and later steps stay unavailable.
 
 ## When to use
@@ -58,22 +59,25 @@ ProgressIndicator
 - `value` is the current step's index, from 0. Steps before it are complete; the number of steps marks them all complete.
 - Your app moves `value`, usually from Back and Next buttons. `onValueChange` gets the index of a step someone clicks, so a wizard can go back to it with `onValueChange={setStep}`. Without it, the markers only show their labels.
 - Vertical, a step shows its `label` beside the marker. To add a description or an action, give the step a `ProgressIndicatorContent` as its child, holding the name and the rest; it takes the label's place.
+- The progress bar is the `track` prop, never a child: every child counts as a step. Leave it out for the bar, or pass `track={null}` when another part already shows how far along the steps are, like a progress ring beside a step's substeps.
 
 ## Rules
 
 - Keep every `ProgressIndicatorStep` a direct child of `ProgressIndicator`, with nothing else between them. A step's position is its index, so a wrapper or fragment counts as one step.
 - Use `variant="shade"` only on a gray background. On white, its gray rings show around every marker.
 - `onValueChange` and `selectAhead` act on horizontal markers only. In a vertical indicator, a step's children are the only way to act on it.
+- `success` and `bordered` act on the vertical indicator only.
 - Give every step a short `label`, under 30 characters. Horizontal, it's only seen in a tooltip.
 - Never pass `asChild` or `render`.
 
 ## API reference
 
-| Part | Built on |
-| --- | --- |
-| `ProgressIndicator` | [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div) |
-| `ProgressIndicatorStep` | [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/li) |
-| `ProgressIndicatorContent` | [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div) |
+| Part | Built on | Description |
+| --- | --- | --- |
+| `ProgressIndicator` | [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div) |  |
+| `ProgressIndicatorTrack` | [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div) | The bar for the current step's share of the way, named by the indicator's aria-label. |
+| `ProgressIndicatorStep` | [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/li) |  |
+| `ProgressIndicatorContent` | [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div) |  |
 
 ### ProgressIndicator
 
@@ -85,6 +89,9 @@ ProgressIndicator
 | `value` | `number` |  | The current step's index, from 0; earlier steps are complete. The step count completes all. |
 | `onValueChange`? | `(value: number) => void` |  | Called with a step's index when it's clicked. Makes the markers selectable. |
 | `selectAhead`? | `boolean` | `false` | Lets people select steps after the current one. |
+| `success`? | `boolean` | `false` | Vertical only: colors finished lines and checks as success, with either variant. |
+| `bordered`? | `boolean` | `false` | Vertical only: draws a line under each step's content but the last. |
+| `track`? | `React.ReactNode` |  | The progress bar. Omit it for ProgressIndicatorTrack, or pass null for none. |
 
 ### ProgressIndicatorStep
 
@@ -101,13 +108,13 @@ ProgressIndicator
 Known gaps:
 
 - The complete and error marks are Lucide's circle check and ban, filled to stand for `utility:success` and `utility:error`.
-- The vertical indicator's green line (`slds-progress_success`), its green check (`slds-progress__marker_icon-success`) and the borders between steps (`slds-progress__list-bordered`) aren't variants. Add a bottom border to `ProgressIndicatorContent` for the borders.
 - `lightning-progress-indicator`'s path type is Path.
 - The hidden state words ("Completed", "Active", "Error") are English.
 
 ## Accessibility
 
 - Name the process with `aria-label`, like "New opportunity". It names both the list of steps and the progress bar.
+- With `track={null}`, screen readers hear each step's state but no progress bar. Pass it only when another part gives the progress.
 - Each horizontal marker is named by its label and state, like "Contact - Completed" or "Account - Active", so keep state words out of labels. The current step also has `aria-current="step"`.
 - Every horizontal marker is a tab stop, so people can reach each tooltip. The arrow keys don't move between steps, as in SLDS.
 - With `onValueChange`, steps people can't select (later steps without `selectAhead`, and `disabled` ones) stay focusable and are marked `aria-disabled`, so their tooltips still open.
@@ -220,6 +227,36 @@ export default function ProgressIndicatorVertical() {
         </ProgressIndicatorContent>
       </ProgressIndicatorStep>
       <ProgressIndicatorStep label="Install the Salesforce mobile app" />
+    </ProgressIndicator>
+  )
+}
+```
+
+### Success lines and borders
+
+With `success` and `bordered`, finished lines and checks turn green and a line separates the steps. `track={null}` drops the progress bar.
+
+```tsx
+import {
+  ProgressIndicator,
+  ProgressIndicatorStep,
+} from "@/components/wisty/progress-indicator"
+
+export default function ProgressIndicatorSuccess() {
+  return (
+    <ProgressIndicator
+      orientation="vertical"
+      value={2}
+      success
+      bordered
+      track={null}
+      aria-label="Import accounts"
+      className="max-w-md"
+    >
+      <ProgressIndicatorStep label="Review source accounts" />
+      <ProgressIndicatorStep label="Confirm the field mapping" />
+      <ProgressIndicatorStep label="Approve a sample import" />
+      <ProgressIndicatorStep label="Import the remaining accounts" />
     </ProgressIndicator>
   )
 }

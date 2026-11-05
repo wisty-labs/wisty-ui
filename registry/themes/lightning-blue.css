@@ -512,6 +512,9 @@
   --file-selector-title-line-height: 1.25;
   --file-selector-dragging-foreground: #c9c9c9;
 
+  /* File card (slds-file) */
+  --file-card-overlay-background: rgb(24, 24, 24, 0.5);
+
   /* Activity timeline (slds-timeline) */
   --timeline-task: rgb(75, 192, 118);
   --timeline-event: rgb(203, 101, 255);
@@ -525,6 +528,22 @@
   --progress-indicator-marker-border: var(--slds-g-color-on-accent-1, #ffffff);
   --progress-indicator-marker-border-hover: var(--slds-r-color-brand-40, #0b5cab);
   --progress-indicator-check-vertical: var(--slds-g-color-accent-1, var(--slds-r-color-brand-60, #1b96ff));
+
+  /* Filter (slds-filters__item) */
+  --filter-item-background-hover: #f3f3f3;
+  --filter-item-background-locked: #f3f3f3;
+  --filter-content-nubbin-shadow: 1px -1px 2px 0 rgb(0, 0, 0, 0.16);
+
+  /* List view filters (slds-filters) */
+  --list-view-filters-body-background: #f3f3f3;
+  --list-view-filters-owner-label: #0b5cab;
+
+  /* Setup assistant (slds-setup-assistant) */
+  --setup-assistant-divider: #c9c9c9;
+  --setup-assistant-title-size: 1rem;
+  --setup-assistant-title-weight: 700;
+  --setup-assistant-title-line-height: 1.25;
+  --setup-assistant-toggle-text-size: 0.625rem;
 
   /* Progress ring (slds-progress-ring) */
   --progress-ring-active-step: var(--slds-g-color-accent-1, var(--slds-r-color-brand-60, #1b96ff));

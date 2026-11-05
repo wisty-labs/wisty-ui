@@ -705,6 +705,9 @@
     var(--background)
   );
 
+  /* File card (slds-file) */
+  --file-card-overlay-background: rgb(24, 24, 24, 0.5);
+
   /* Activity timeline (slds-timeline) */
   --timeline-task: rgb(75, 192, 118);
   --timeline-event: rgb(203, 101, 255);
@@ -722,6 +725,26 @@
     var(--background)
   );
   --progress-indicator-check-vertical: var(--primary);
+
+  /* Filter (slds-filters__item) */
+  --filter-item-background-hover: var(--muted);
+  --filter-item-background-locked: var(--muted);
+  --filter-content-nubbin-shadow: 2px -2px 2px 0 #0000001f;
+
+  /* List view filters (slds-filters) */
+  --list-view-filters-body-background: var(--muted);
+  --list-view-filters-owner-label: var(--primary);
+
+  /* Setup assistant (slds-setup-assistant) */
+  --setup-assistant-divider: color-mix(
+    in oklab,
+    var(--foreground) 45%,
+    var(--background)
+  );
+  --setup-assistant-title-size: 1rem;
+  --setup-assistant-title-weight: 700;
+  --setup-assistant-title-line-height: 1.25;
+  --setup-assistant-toggle-text-size: 0.625rem;
 
   /* Progress ring (slds-progress-ring) */
   --progress-ring-active-step: var(--primary);
@@ -1532,6 +1555,9 @@
     var(--background)
   );
 
+  /* File card (slds-file) */
+  --file-card-overlay-background: rgb(24, 24, 24, 0.5);
+
   /* Activity timeline (slds-timeline) */
   --timeline-task: rgb(75, 192, 118);
   --timeline-event: rgb(203, 101, 255);
@@ -1549,6 +1575,26 @@
     var(--background)
   );
   --progress-indicator-check-vertical: var(--primary);
+
+  /* Filter (slds-filters__item) */
+  --filter-item-background-hover: var(--muted);
+  --filter-item-background-locked: var(--muted);
+  --filter-content-nubbin-shadow: 2px -2px 2px 0 #0000003d;
+
+  /* List view filters (slds-filters) */
+  --list-view-filters-body-background: var(--muted);
+  --list-view-filters-owner-label: var(--primary);
+
+  /* Setup assistant (slds-setup-assistant) */
+  --setup-assistant-divider: color-mix(
+    in oklab,
+    var(--foreground) 45%,
+    var(--background)
+  );
+  --setup-assistant-title-size: 1rem;
+  --setup-assistant-title-weight: 700;
+  --setup-assistant-title-line-height: 1.25;
+  --setup-assistant-toggle-text-size: 0.625rem;
 
   /* Progress ring (slds-progress-ring) */
   --progress-ring-active-step: var(--primary);

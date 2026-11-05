@@ -1,0 +1,23 @@
+{
+	"name": "wisty-ui",
+	"description": "React components with Salesforce Lightning's look (SLDS 2), on shadcn/ui for Radix and Base UI. Connects Wisty UI's MCP server, to find, read and install components, and adds a skill that tells the agent when to use them.",
+	"version": "1.0.0",
+	"author": {
+		"name": "Wisty",
+		"email": "hello@wisty.ai"
+	},
+	"homepage": "https://ui.wisty.ai",
+	"repository": "https://github.com/wisty-labs/wisty-ui",
+	"license": "MIT",
+	"keywords": [
+		"shadcn",
+		"salesforce",
+		"slds",
+		"lightning",
+		"react",
+		"radix",
+		"base-ui",
+		"mcp"
+	],
+	"logo": ".github/assets/logo.svg"
+}
