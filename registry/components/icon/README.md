@@ -55,7 +55,7 @@ If your app serves the icons from another folder, wrap the app in `<IconProvider
 
 - Never set an object icon's background or glyph color with classes. Use `variant` for utility icons.
 - Never copy Salesforce's SVGs into your source, or edit, recolor inside or trace the artwork. Load them through Icon.
-- Credit the icons. They're licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/): use them unaltered, with credit, without suggesting Salesforce endorses your app. The folder you copied already holds Salesforce's `License-for-icons.txt`; keep it there, and put a line like this in your app's credits: "Icons by Salesforce, from the Salesforce Lightning Design System, used unaltered under CC BY-ND 4.0 (https://creativecommons.org/licenses/by-nd/4.0/)."
+- Keep Salesforce's `License-for-icons.txt` in the copied icon folder.
 - Keep `icon-colors.ts` under Salesforce's Terms of Use. Its object icon colors are Salesforce's ([License](https://ui.wisty.ai/docs/license)).
 - Some glyphs are product logos, like `utility:slack`, `utility:tableau` and `utility:salesforce1`. Show them only to name that product; the icon license grants no trademark rights.
 - Never pass `asChild` or `render`.

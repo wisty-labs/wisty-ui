@@ -61,7 +61,7 @@ The header is only the header. The page filters its rows with the search text, s
 - Pass `itemCount` as the number of rows the page has, and `hasMoreItems` when it has loaded only some of them, which shows "50+ items". Pass `null` when the count isn't known. Never pass 0 for a count you don't have.
 - Pass `updated` as the page writes it ("a few seconds ago"), from the time the rows were read. The block never reads the clock.
 - Pass `sortedBy` and `filteredBy` in the list view's own words: the field label and the filter's name.
-- The object icons come from `@salesforce-ux/icons`, a dependency licensed CC BY-ND 4.0: use them unaltered, and credit them.
+- The object icons come from `@salesforce-ux/icons`, a dependency licensed CC BY-ND 4.0: use them unaltered.
 - Never pass `asChild` or `render`.
 
 ## API reference

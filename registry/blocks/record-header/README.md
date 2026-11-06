@@ -67,7 +67,7 @@ A field's `type` uses Output field's value types, `address`, `name`, `time` and 
 - An `address` is `{ street, city, state, postalCode, country }` and shows on one line, its parts joined by ", ". A `name` is `{ salutation, firstName, middleName, lastName, suffix }`, in that order. Empty parts drop out; one with no parts shows blank.
 - A `relative` value is an instant, shown as "3 hours ago" with its date and time on hover. Pass `now` from the page, or the current time is read at render and a server and a browser render can differ.
 - Pass amounts in one currency and set `currency` to match.
-- The object icons come from `@salesforce-ux/icons`, a dependency licensed CC BY-ND 4.0: use them unaltered, and credit them.
+- The object icons come from `@salesforce-ux/icons`, a dependency licensed CC BY-ND 4.0: use them unaltered.
 - Never pass `asChild` or `render`.
 
 ## API reference
