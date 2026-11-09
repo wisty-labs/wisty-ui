@@ -640,7 +640,7 @@ function focusFirst(registered: Registered, names: ReadonlySet<string>) {
 // its own cleanup, as React 19 allows; one that doesn't is called with null instead.
 function composeRef<T extends HTMLElement>(
   ref: React.Ref<T> | undefined,
-  own: (element: T) => void | (() => void)
+  own: (element: T) => () => void
 ) {
   return (element: T | null) => {
     if (!element) return
@@ -648,7 +648,7 @@ function composeRef<T extends HTMLElement>(
     if (ref && typeof ref !== "function") ref.current = element
     const cleanup = own(element)
     return () => {
-      cleanup?.()
+      cleanup()
       if (typeof release === "function") release()
       else if (typeof ref === "function") ref(null)
       else if (ref) ref.current = null
@@ -1107,14 +1107,17 @@ function RecordFormField({
   ref,
   children,
   ...props
-}: Omit<React.ComponentProps<typeof Field>, "orientation"> & {
-  /** The field's API name, a key of the form's `fields`. */
-  name: string
-  /** The word before the field's label in the undo button's name. Default "Undo". */
-  undoLabel?: string
-  /** A custom control that calls useRecordFormControl, never for an address or a name; omit it for the type's own. */
-  children?: React.ReactNode
-}) {
+}: Omit<React.HTMLAttributes<HTMLElement>, "children"> &
+  Pick<React.ComponentProps<typeof Field>, "layout"> & {
+    /** The field's element: a Field, or a fieldset for a field of parts. */
+    ref?: React.Ref<HTMLElement>
+    /** The field's API name, a key of the form's `fields`. */
+    name: string
+    /** The word before the field's label in the undo button's name. Default "Undo". */
+    undoLabel?: string
+    /** A custom control that calls useRecordFormControl, never for an address or a name; omit it for the type's own. */
+    children?: React.ReactNode
+  }) {
   const form = useRecordForm("RecordFormField")
   const id = React.useId()
   const { register, unregister } = form
@@ -1125,7 +1128,7 @@ function RecordFormField({
   // form can read, check and focus it.
   const setFieldRef = React.useMemo(
     () =>
-      composeRef<HTMLDivElement>(ref, (element) => {
+      composeRef<HTMLElement>(ref, (element) => {
         register(name, element, focusId)
         return () => unregister(name, element)
       }),
@@ -1268,12 +1271,12 @@ function RecordFormField({
     const failed = shown.length > 0
     return (
       <FieldSet
-        ref={setFieldRef as unknown as React.Ref<HTMLFieldSetElement>}
+        ref={setFieldRef}
         data-field={name}
         data-invalid={failed || undefined}
         data-edited={edited || undefined}
         aria-describedby={failed ? errorId : undefined}
-        {...(props as React.ComponentProps<"fieldset">)}
+        {...props}
         className={cn(
           "relative block min-w-0 px-1 data-edited:bg-(--field-edited-background)",
           className

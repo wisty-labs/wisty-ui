@@ -150,7 +150,7 @@ To lay out a page layout you load at runtime, flatten each section's rows to fie
 | `RecordFormMessages` | [Alert](https://ui.wisty.ai/alert#api-Alert) | The errors for the whole record, above the sections. Renders nothing without any. |
 | `RecordFormRequiredLegend` | [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/p) | The legend for the required marker: "* = Required Information". |
 | `RecordFormSection` | [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset) | A titled section of fields, in one or two columns. |
-| `RecordFormField` | [Field](https://ui.wisty.ai/field#api-Field) | One field by API name, drawn as its type's control, with its label, help and errors. |
+| `RecordFormField` | [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div) | One field by API name, drawn as its type's control, with its label, help and errors. |
 | `RecordFormFooter` | [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div) | The row of buttons under the sections on a page. In a dialog, use DialogFooter. |
 | `RecordFormSubmit` | [Button](https://ui.wisty.ai/button#api-Button) | Save, or Save & New with `intent="save-and-new"`. Shows a spinner while the save it started is pending. Enter in a field always saves. |
 
@@ -201,10 +201,11 @@ One field by API name, drawn as its type's control, with its label, help and err
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children`? | `React.ReactNode` |  | A custom control that calls useRecordFormControl, never for an address or a name; omit it for the type's own. |
+| `layout`? | `"stacked" \| "horizontal" \| "auto"` | `"auto"` |  |
+| `ref`? | `React.Ref<HTMLElement>` |  | The field's element: a Field, or a fieldset for a field of parts. |
 | `name` | `string` |  | The field's API name, a key of the form's `fields`. |
 | `undoLabel`? | `string` | `"Undo"` | The word before the field's label in the undo button's name. Default "Undo". |
-| `layout`? | `"stacked" \| "horizontal" \| "auto"` | `"auto"` |  |
+| `children`? | `React.ReactNode` |  | A custom control that calls useRecordFormControl, never for an address or a name; omit it for the type's own. |
 
 ### RecordFormSubmit
 

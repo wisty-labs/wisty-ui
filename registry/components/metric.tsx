@@ -61,7 +61,7 @@ function MetricValue({
           "my-[calc((var(--metric-value-line-height)-1)*0.5em)] h-[1em] w-[5ch] text-(length:--chart-value-size)",
           className
         )}
-        {...(props as React.ComponentProps<"div">)}
+        {...props}
       />
     )
   }
@@ -136,7 +136,7 @@ function MetricTrend({
           "h-4 w-[14ch] text-(length:--metric-label-size)",
           className
         )}
-        {...(props as React.ComponentProps<"div">)}
+        {...props}
       />
     )
   }
